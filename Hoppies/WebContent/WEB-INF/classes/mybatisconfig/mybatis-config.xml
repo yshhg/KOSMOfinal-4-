@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="a.b.c.com.board.vo.SpringBoardVO" alias="boardVO"/>
+		<typeAlias type="a.b.c.com.rboard.vo.SpringRboardVO" alias="rboardVO"/>		
+		<typeAlias type="a.b.c.com.mem.vo.SpringMemberVO" alias="memberVO"/>
+		<typeAlias type="a.b.c.com.login.vo.TempAuthNumVO" alias="authnumVO"/>	
+		<typeAlias type="a.b.c.com.login.vo.TempPwVO" alias="pwVO"/>
+	</typeAliases>
+</configuration>

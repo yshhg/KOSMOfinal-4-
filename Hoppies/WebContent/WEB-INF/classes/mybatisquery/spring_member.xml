@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="a.b.c.com.mem.dao.SpringMemberDAO">
+
+<insert id="memberInsert" parameterType="memberVO">
+
+	INSERT INTO SPRING_MEMBER( 	 
+								 MNUM      		<!-- COLUMN 1 -->
+								,MNAME 			<!-- COLUMN 2 -->
+								,MID 			<!-- COLUMN 3 -->
+								,MPW 			<!-- COLUMN 4 -->
+	                          	,MGENDER   		<!-- COLUMN 5 --> 
+	                          	,MBIRTH 		<!-- COLUMN 6 -->
+	                          	,MHP 			<!-- COLUMN 7 -->
+	                          	,MTEL			<!-- COLUMN 8 -->
+	                          	,MEMAIL   		<!-- COLUMN 9 -->
+	                          	,MZONECODE  	<!-- COLUMN 10 -->
+	                          	,MROADADDRESS 	<!-- COLUMN 11 -->
+	                          	,MJIBUNADDRESS 	<!-- COLUMN 12 -->
+	                          	,MHOBBY   		<!-- COLUMN 13 -->
+	                          	,MINFO			<!-- COLUMN 14 -->
+	                          	,MPHOTO			<!-- COLUMN 15 -->
+	                          	,MADMIN 		<!-- COLUMN 16 -->
+	                          	,DELETEYN		<!-- COLUMN 17 -->
+	                          	,INSERTDATE	 	<!-- COLUMN 18 -->
+	                          	,UPDATEDATE		<!-- COLUMN 19 -->
+	                         ) 
+	                  VALUES
+	                  		( 	 
+	                  			 #{mnum, jdbcType=VARCHAR} 				<!-- placeholer 1 -->
+	                  			,#{mname, jdbcType=VARCHAR} 			<!-- placeholer 2 --> 
+	                  			,#{mid, jdbcType=VARCHAR} 				<!-- placeholer 3 -->
+	                          	,#{mpw, jdbcType=VARCHAR}  				<!-- placeholer 4 -->
+	                          	,#{mgender, jdbcType=VARCHAR} 			<!-- placeholer 5 -->
+	                          	,#{mbirth, jdbcType=VARCHAR}  			<!-- placeholer 6 -->
+	                  			,#{mhp, jdbcType=VARCHAR} 				<!-- placeholer 7 -->
+	                          	,#{mtel, jdbcType=VARCHAR}  			<!-- placeholer 8 -->
+	                          	,#{memail, jdbcType=VARCHAR}  			<!-- placeholer 9 -->
+	                          	,#{mzonecode, jdbcType=VARCHAR} 		<!-- placeholer 10 -->
+	                          	,#{mroadaddress, jdbcType=VARCHAR}  	<!-- placeholer 11 -->
+	                  			,#{mjibunaddress, jdbcType=VARCHAR} 	<!-- placeholer 12 -->
+	                          	,#{mhobby, jdbcType=VARCHAR}  			<!-- placeholer 13 -->
+	                          	,#{minfo, jdbcType=VARCHAR}  			<!-- placeholer 14 -->
+	                          	,#{mphoto, jdbcType=VARCHAR} 			<!-- placeholer 15 -->
+	                          	,#{madmin, jdbcType=VARCHAR} 			<!-- placeholer 16 -->
+	                          	,'Y'  									<!-- placeholer 17 -->
+	                          	,SYSDATE  								<!-- placeholer 18 -->
+	                          	,SYSDATE 								<!-- placeholer 19 -->
+	                         ) 
+</insert>
+
+<select id="memberSelectAll" parameterType="memberVO" resultType="memberVO">	
+	SELECT	 A.MNUM 			MNUM 
+			,A.MNAME 			MNAME 
+			,A.MID 				MID 
+			,A.MPW 				MPW 
+            ,A.MGENDER 			MGENDER    
+            ,A.MBIRTH 			MBIRTH 
+            ,A.MHP 				MHP 
+            ,A.MTEL 			MTEL
+            ,A.MEMAIL 			MEMAIL   
+            ,A.MZONECODE 		MZONECODE  
+            ,A.MROADADDRESS 	MROADADDRESS 
+            ,A.MJIBUNADDRESS 	MJIBUNADDRESS 
+            ,A.MHOBBY 			MHOBBY   
+            ,A.MINFO 			MINFO
+            ,A.MPHOTO 			MPHOTO
+            ,A.MADMIN 			MADMIN 
+            ,A.DELETEYN 		DELETEYN
+            ,TO_CHAR(A.INSERTDATE, 'YYYY-MM-DD')  INSERTDATE 
+            ,TO_CHAR(A.UPDATEDATE, 'YYYY-MM-DD')  UPDATEDATE     
+	FROM 	SPRING_MEMBER A
+	WHERE 	A.DELETEYN = 'Y' 	
+	ORDER BY 1 DESC  
+</select>
+
+<select id="memberSelect" parameterType="memberVO" resultType="memberVO">
+	SELECT	 A.MNUM 			MNUM 
+			,A.MNAME 			MNAME 
+			,A.MID 				MID 
+			,A.MPW 				MPW
+            ,A.MGENDER 			MGENDER    
+            ,A.MBIRTH 			MBIRTH 
+            ,A.MHP 				MHP 
+            ,A.MTEL 			MTEL
+            ,A.MEMAIL 			MEMAIL   
+            ,A.MZONECODE 		MZONECODE  
+            ,A.MROADADDRESS 	MROADADDRESS 
+            ,A.MJIBUNADDRESS 	MJIBUNADDRESS 
+            ,A.MHOBBY 			MHOBBY   
+            ,A.MINFO 			MINFO
+            ,A.MPHOTO 			MPHOTO
+            ,A.MADMIN 			MADMIN 
+            ,A.DELETEYN 		DELETEYN
+            ,TO_CHAR(A.INSERTDATE, 'YYYY-MM-DD')  INSERTDATE 
+           	,TO_CHAR(A.UPDATEDATE, 'YYYY-MM-DD')  UPDATEDATE     
+	FROM 	SPRING_MEMBER A
+	WHERE 	A.DELETEYN = 'Y' 
+	AND 	A.MNUM = #{mnum, jdbcType=VARCHAR}
+</select>
+
+<update id="memberUpdate" parameterType="memberVO">
+	UPDATE   SPRING_MEMBER 
+	SET 	 MEMAIL 		= #{memail, jdbcType=VARCHAR}
+			,MZONECODE  	= #{mzonecode, jdbcType=VARCHAR}
+			,MROADADDRESS 	= #{mroadaddress, jdbcType=VARCHAR}
+			,MJIBUNADDRESS 	= #{mjibunaddress, jdbcType=VARCHAR}
+			,MHOBBY 		= #{mhobby, jdbcType=VARCHAR}
+	       	,UPDATEDATE = SYSDATE
+	WHERE 	DELETEYN = 'Y' 
+	AND 	MNUM = #{mnum, jdbcType=VARCHAR}
+</update>
+
+<update id="memberDelete" parameterType="memberVO">
+	UPDATE 	 SPRING_MEMBER 
+	SET 	 DELETEYN = 'N'
+			,UPDATEDATE = SYSDATE
+	WHERE 	DELETEYN = 'Y' 
+	AND 	MNUM = #{mnum, jdbcType=VARCHAR}
+</update>
+
+
+<select id="memberIdCheck" parameterType="memberVO" resultType="memberVO">
+	SELECT 	A.MID MID
+	FROM 	SPRING_MEMBER A 
+	WHERE 	DELETEYN = 'Y'
+	AND     A.MID = #{mid, jdbcType=VARCHAR}
+</select>
+</mapper>
+

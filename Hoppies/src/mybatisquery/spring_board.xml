@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="a.b.c.com.board.dao.SpringBoardDAO">
+
+<resultMap type="a.b.c.com.board.vo.SpringBoardVO" id="bvo">
+	<result property="sbnum" 		column="SBNUM"/>
+	<result property="sbsubject"	column="SBSUBJECT"/>
+	<result property="sbname" 		column="SBNAME"/>
+	<result property="sbcontent" 	column="SBCONTENT"/>
+	<result property="sbfile" 		column="SBFILE"/>
+	<result property="sbpw" 		column="SBPW"/>
+</resultMap>
+
+<insert id="boardInsert" parameterType="boardVO">
+
+	INSERT INTO SPRING_BOARD( 	SBNUM, 
+								SBSUBJECT, 
+								SBNAME,
+	                          	SBCONTENT, 
+	                          	SBFILE, 
+	                          	SBPW,
+	                          	SBDELYN, 
+	                          	SBINSERTDATE, 
+	                          	SBUPDATEDATE) 
+	                  VALUES( 	#{sbnum, jdbcType=VARCHAR}, 
+	                  			#{sbsubject, jdbcType=VARCHAR}, 
+	                  			#{sbname, jdbcType=VARCHAR},
+	                          	#{sbcontent, jdbcType=VARCHAR}, 
+	                          	#{sbfile, jdbcType=VARCHAR}, 
+	                          	#{sbpw, jdbcType=VARCHAR},
+	                          	'Y', 
+	                          	SYSDATE, 
+	                          	SYSDATE)
+</insert>
+
+<select id="boardSelectPaging" parameterType="boardVO" resultType="boardVO">	
+	SELECT * FROM (
+		SELECT 	A.SBNUM 	SBNUM
+		       ,A.SBSUBJECT SBSUBJECT
+		       ,A.SBNAME 	SBNAME
+		       ,A.SBCONTENT SBCONTENT
+		       ,A.SBFILE 	SBFILE
+		       ,A.SBDELYN 	SBDELYN
+		       ,TO_CHAR(A.SBINSERTDATE, 'YYYY-MM-DD') SBINSERTDATE
+		       ,TO_CHAR(A.SBUPDATEDATE, 'YYYY-MM-DD') SBUPDATEDATE	  
+		       <!--  ? : 페이지 사이즈 : pageSize  -->
+		       ,CEIL(ROW_NUMBER() OVER(ORDER BY A.SBNUM)/ #{pageSize, jdbcType=VARCHAR} ) pageSize		
+			   ,COUNT(A.SBNUM) OVER() AS totalCount       
+		FROM 	SPRING_BOARD A
+		WHERE 	A.SBDELYN = 'Y' 	
+		ORDER BY 1 DESC  
+		<!--  ? : 현재 페이지 : curPage -->
+	) WHERE pageSize = #{curPage, jdbcType=VARCHAR}
+</select>
+
+<select id="boardSelectAll" parameterType="boardVO" resultType="boardVO">	
+	SELECT 	A.SBNUM 	SBNUM
+	       ,A.SBSUBJECT SBSUBJECT
+	       ,A.SBNAME 	SBNAME
+	       ,A.SBCONTENT SBCONTENT
+	       ,A.SBFILE 	SBFILE
+	       ,A.SBDELYN 	SBDELYN
+	       ,TO_CHAR(A.SBINSERTDATE, 'YYYY-MM-DD') SBINSERTDATE
+	       ,TO_CHAR(A.SBUPDATEDATE, 'YYYY-MM-DD') SBUPDATEDATE	     
+	FROM 	SPRING_BOARD A
+	WHERE 	A.SBDELYN = 'Y' 
+	<if test="startdate!=null and startdate!='' and enddate!=null and enddate!=''">
+		<![CDATA[AND TO_CHAR(A.SBINSERTDATE, 'YYYY-MM-DD') >= TO_CHAR(TO_DATE(#{startdate, jdbcType=VARCHAR}), 'YYYY-MM-DD')]]>
+		<![CDATA[AND TO_CHAR(A.SBINSERTDATE, 'YYYY-MM-DD') <= TO_CHAR(TO_DATE(#{enddate, jdbcType=VARCHAR}), 'YYYY-MM-DD')]]>
+	</if>
+	<if test="keyfilter=='key1'">
+		<![CDATA[AND A.SBSUBJECT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+	</if>
+	<if test="keyfilter=='key2'">
+		<![CDATA[AND A.SBCONTENT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+	</if>
+	<if test="keyfilter=='key3'">
+		<![CDATA[AND A.SBSUBJECT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+		<![CDATA[OR A.SBCONTENT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>			
+	</if>
+	<if test="keyfilter=='key4'">
+		<![CDATA[AND A.SBNAME LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>			
+	</if>
+	<if test="keyfilter=='key5'">
+		<![CDATA[AND A.SBNUM LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>			
+	</if>
+	ORDER BY 1 DESC  
+</select>
+
+<select id="boardSelect" parameterType="boardVO" resultType="boardVO">
+	SELECT  A.SBNUM 	SBNUM
+	       ,A.SBSUBJECT SBSUBJECT
+	       ,A.SBNAME 	SBNAME
+	       ,A.SBCONTENT SBCONTENT
+	       ,A.SBFILE 	SBFILE
+	       ,A.SBDELYN 	SBDELYN
+	       ,TO_CHAR(A.SBINSERTDATE, 'YYYY-MM-DD') SBINSERTDATE
+	       ,TO_CHAR(A.SBUPDATEDATE, 'YYYY-MM-DD') SBUPDATEDATE
+	FROM SPRING_BOARD A WHERE A.SBDELYN='Y' AND A.SBNUM = #{sbnum, jdbcType=VARCHAR}
+</select>
+
+<update id="boardUpdate" parameterType="boardVO">
+	UPDATE SPRING_BOARD SET SBCONTENT=#{sbcontent, jdbcType=VARCHAR}, SBUPDATEDATE = SYSDATE
+	WHERE SBDELYN = 'Y' AND SBNUM = #{sbnum, jdbcType=VARCHAR}
+</update>
+
+<update id="boardDelete" parameterType="boardVO">
+	UPDATE SPRING_BOARD SET SBDELYN = 'N', SBUPDATEDATE = SYSDATE
+	WHERE SBDELYN = 'Y' AND SBNUM = #{sbnum, jdbcType=VARCHAR}
+</update>
+
+
+<select id="boardPwCheck" parameterType="boardVO" resultType="boardVO">
+	SELECT A.SBPW SBPW
+	FROM SPRING_BOARD A 
+	WHERE A.SBDELYN = 'Y' 
+	AND A.SBNUM = #{sbnum, jdbcType=VARCHAR}
+	AND A.SBPW = #{sbpw, jdbcType=VARCHAR}
+</select>
+</mapper>
+

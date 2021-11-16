@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="a.b.c.com.rboard.dao.SpringRboardDAO">
+
+<insert id="rboardInsert" parameterType="rboardVO">
+
+	INSERT INTO SPRING_RBOARD( 	RSBNUM, 
+								SBNUM, 
+								RSBNAME,
+	                           	RSBCONTENT, 
+	                           	RSBPW, 
+	                           	RSBDELYN,
+	                           	RSBINSERTDATE) 
+	                  VALUES( 	#{rsbnum, jdbcType=VARCHAR}, 
+	                  			#{sbnum, jdbcType=VARCHAR}, 
+	                  			#{rsbname, jdbcType=VARCHAR},
+	                          	#{rsbcontent, jdbcType=VARCHAR}, 
+	                          	#{rsbpw, jdbcType=VARCHAR}, 
+	                          	'Y',
+	                          	SYSDATE)
+</insert>
+
+<select id="rboardSelect" parameterType="rboardVO" resultType="rboardVO">
+	SELECT * FROM SPRING_RBOARD WHERE RSBDELYN = 'Y' AND RSBNUM = #{rsbnum, jdbcType=VARCHAR}
+</select>
+
+<select id="rboardSelectAll" parameterType="rboardVO" resultType="rboardVO">
+	SELECT * FROM SPRING_RBOARD WHERE RSBDELYN = 'Y' AND SBNUM = #{sbnum, jdbcType=VARCHAR}
+</select>
+
+<update id="rboardDelete" parameterType="rboardVO">
+	UPDATE SPRING_RBOARD SET RSBDELYN = 'N', RSBINSERTDATE = SYSDATE
+	WHERE RSBDELYN = 'Y' AND RSBNUM = #{rsbnum, jdbcType=VARCHAR}
+</update>
+
+</mapper>
+

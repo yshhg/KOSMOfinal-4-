@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="a.b.c.com.login.dao.SpringLoginDAO">
+
+
+<select id="loginCheck" parameterType="memberVO" resultType="memberVO">	
+	SELECT 	 A.MID MID
+	   		,A.MPW MPW 
+	FROM 	SPRING_MEMBER A 
+	WHERE 	A.DELETEYN = 'Y'
+	AND   	A.MID = #{mid, jdbcType=VARCHAR}	                          	 
+	AND   	A.MPW = #{mpw, jdbcType=VARCHAR} 
+</select>
+
+<!-- 이메일로 ID 찾기  -->
+<select id="emailCheck" parameterType="memberVO" resultType="memberVO">	
+	SELECT 	 A.MNAME MNAME
+	   		,A.MEMAIL MEMAIL 
+	FROM 	SPRING_MEMBER A 
+	WHERE 	A.DELETEYN = 'Y'
+	AND   	A.MNAME = #{mname, jdbcType=VARCHAR}	                          	 
+	AND   	A.MEMAIL = #{memail, jdbcType=VARCHAR} 
+</select>
+
+<insert id="tempAuthNumInsert" parameterType="authnumVO">
+	<selectKey keyProperty="anum" resultType="int" order="BEFORE">
+ 		SELECT AUTHNUM_SEQ.NEXTVAL FROM DUAL
+ 	</selectKey>
+	INSERT INTO TEMP_AUTH_NUM ( ANUM, AUTHNUM, MEMAIL, INSERTDATE) 
+	                  VALUES ( #{anum, jdbcType=INTEGER}, #{authnum, jdbcType=VARCHAR}, #{memail, jdbcType=VARCHAR}, SYSDATE)	                          
+</insert>
+
+<select id="emailIdFind" parameterType="memberVO" resultType="memberVO">	
+	SELECT 
+			 A.MID           MID
+	      	,A.INSERTDATE    INSERTDATE
+	FROM     SPRING_MEMBER A
+	        ,TEMP_AUTH_NUM B
+	WHERE    A.DELETEYN = 'Y'
+	AND      A.MEMAIL = B.MEMAIL
+	AND      B.MEMAIL = #{tempauthmemail, jdbcType=VARCHAR}
+	AND      B.AUTHNUM = #{tempauthnum, jdbcType=VARCHAR}
+</select>
+
+<!-- 아이디로 비밀번호 찾기  -->
+<select id="pwIdCheck" parameterType="memberVO" resultType="memberVO">	
+	SELECT 	A.MID MID 
+	FROM 	SPRING_MEMBER A 
+	WHERE 	A.DELETEYN = 'Y'
+	AND   	A.MID = #{mid, jdbcType=VARCHAR}	                          	  
+</select>
+
+<select id="pwEmailCheck" parameterType="memberVO" resultType="memberVO">	
+	SELECT 	 A.MID MID
+			,A.MEMAIL MEMAIL 
+	FROM 	SPRING_MEMBER A 
+	WHERE 	A.DELETEYN = 'Y'
+	AND   	A.MID = #{mid, jdbcType=VARCHAR}	  
+	AND   	A.MEMAIL = #{memail, jdbcType=VARCHAR}	                        	  
+</select>
+
+
+<insert id="tempPwInsert" parameterType="pwVO">
+	<selectKey keyProperty="pnum" resultType="String" order="BEFORE">
+ 		SELECT LPAD((NVL(MAX(A.PNUM), 0)) + 1, 8, '0') PNUM FROM TEMP_PW A
+ 	</selectKey>
+	INSERT INTO TEMP_PW ( PNUM, PTEMPPW, MID, INSERTDATE) 
+	             VALUES ( #{pnum, jdbcType=VARCHAR}, #{ptemppw, jdbcType=VARCHAR}, #{mid, jdbcType=VARCHAR}, SYSDATE)	                          
+</insert>
+
+</mapper>
+
