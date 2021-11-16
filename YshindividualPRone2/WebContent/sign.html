@@ -1,0 +1,320 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ include file="main_setting.jsp"%>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="${project}main/style2.css">
+    <link rel="stylesheet" href="${project}login/style.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <style>
+      *{
+        font-family: "Bahnschrift Light";
+        color: #000;
+      }
+
+        div {
+          color: #000;
+            padding:5px; margin:3px;
+            text-align:center;
+        }
+
+        table{
+
+          width:335px;
+        }
+
+        #con {
+            width:1000px;
+            margin:0 auto;
+            overflow:hidden;
+        }
+
+        #header {
+            border-top:10px solid black;
+            line-height:100px;
+            font-color:#000;
+            font-size:25px;
+            width:980px; 
+            height:90px;
+            line-height:80px;
+        }
+
+        #menu {
+	        overflow:hidden; 
+            font-size: 12px;
+            width:980px;
+
+        }
+
+        #menu ul { overflow:hidden; }
+
+        #menu ul li {
+            width:25%;
+            line-height:40px;
+            text-align:center;
+            list-style:none;
+            float:left;
+        }
+
+      	 #wrap {
+        	min-height:600px;
+            width:980px;
+            overflow:hidden;
+        }
+
+        #content {
+	        overflow:hidden; 
+	        margin:0 auto;
+            width:970px; 
+            float:left;
+        }
+
+        #footer ul { 
+	        width:980px;
+	    	margin:0 auto;
+	        overflow:hidden; }
+
+        #footer ul li {
+
+            font-size: 15px;
+            width:32%; height:80px;
+            line-height:40px;
+            text-align:center;
+            list-style:none;
+            float:left;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        #submenu1 ul{
+          list-style:none;
+          padding:2px;
+
+        }
+
+        #submenu1, #submenu2, #submenu3{
+          display: none;
+          padding: 5px;
+
+        }
+
+        #menu li:hover #submenu1{
+          display: block;
+
+        }
+
+        #menu li:hover #submenu2{
+          display: block;
+        }
+
+        #menu li:hover #submenu3{
+          display: block;
+        }
+
+        #line{
+          border: 1px solid #D7DBDD;
+          width: 980px;
+
+        }
+
+        b{
+          font-family: "couture";
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="con">
+        <div id="header">
+
+          <p > &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="main.do"><b>CHANEL</b></a> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          <a href="search.html"><img src="${project}search_icon.png" id="search" width="15px"></a>
+          <a href="login.do"><img src="${project}login_icon.png" id="login" width="15px"></a>
+          <a href="mypage.html"><img src="${project}cart_icon.png" id="cart" width="15px"></a>
+          <a href="#"><img src="${project}loc_icon.png" id="loc" width="15px"></a>
+
+          </p>
+        </div>
+
+
+<!-- IDEA: id는 한번만 class는 중복 가능 -->
+        <div id="menu"> <!-- IDEA: 상위 메뉴묶음 -->
+            <ul>
+                <li><a href="perfume.html"><b>fragrance</b></a>  <!-- IDEA: 상위메뉴1 -->
+                  <div id="submenu1">
+                    <table class="table">
+                      <tr>
+                        <td><a href="#"><b>WOMEN</b></a></td>
+                        <td><a href="#"></a></td>
+                        <td><a href="#"><b>MEN</b></a></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">Chance</a></td>
+                        <td><a href="n5.html">N°5</a></td>
+                        <td><a href="#">blue de chanel</a></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">Coco</a></td>
+                        <td><a href="Mademoisel.html">Coco Mademoiselle</a></td>
+                      </tr>
+                    </table>
+                  </div>
+                  </li>
+
+                <li><a href="#"><b>makeup</b></a>
+                <div id="submenu2">
+                  <table class="table"> 
+                  <tr>
+                    <td><a href="#"><b>skin</b></a></td>
+                    <td><a href="#"><b>lip</b></a></td>
+                    <td><a href="#"><b>eye</b></a></td>
+                  </tr>
+
+                  <tr>
+                    <td><a href="#">base</a></td>
+                    <td><a href="#">lipstick</a></td>
+                    <td><a href="#">mascara</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><a href="#">concealer</a></td>
+                    <td><a href="#">lip care</a></td>
+                    <td><a href="#">eyeshadow</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><a href="#">powder</a></td>
+                    <td><a href="#">lip pencil</a></td>
+                    <td><a href="#">pencil/liner</a></td>
+                  </tr>
+
+                  </table>
+                </div>
+                </li>
+
+                <li ><a href="#"><b>skincare</b></a>
+                  <div id="submenu3">
+                    <table class="table">
+                      <tr>
+                        <td ><b>category</b></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">cream</a></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">serum</a></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">body care</a></td>
+                      </tr>
+                    </table>
+
+                  </div>
+
+                </li>
+
+                <li><a href="#"><b> special edition</b></a></li>
+            </ul>
+        </div>
+
+         <div id="wrap">
+          <br><br>
+          <h2><b>ACCOUNT</b></h2>
+
+          <div class="forms">
+          
+          	<ul class="tab-group">
+          		<li class="tab active"><a href="#login"><b>SIGN IN</b></a></li>
+          		<li class="tab"><a href="#signup"><b>REGISTER</b></a></li>
+          	</ul>
+          	
+          	<form action="loginPro.do" id="login">
+          		<c:if test="${sessionScope.memEmail == null}">
+          	      <h1>Welcome back</h1>
+          	      <div class="input-field">
+          	        <label for="email">Email</label>
+          	        <input type="email" id="email" name="email" required />
+          	        
+          	        <label for="pwd">Password</label>
+          	        <input type="password" id="pwd" name="pwd" required/>
+          	        
+          	        <input type="submit" value="Login" class="button"/>
+          	        <input  class="button" type="button" onclick='window.open("passwordFind.do","Find","menubar=no, width=500, height=200")' value="Forgot password?">
+          	      </div>
+          	  	</c:if>
+
+          	  </form>
+          	  
+          	  
+          	  <form action="signupPro.do" id="signup" name="signup">
+          	      <p>Create an account and benefit from a more personal shopping experience, and quicker online checkout.</p>
+          	      <div class="input-field">
+          	        <label for="email">Email</label>
+          	        <input type="email" id="email" name="email" required/>
+          	        <!-- 이베일 중복확인 -->
+          	        <input class="inputButton" type="button" name="dupChk" value="중복확인" onclick="confirmEmail();">
+          	        
+          	        <label for="pwd">Password</label>
+          	        <input type="password" id="pwd" name="pwd" required/>
+          	        
+          	        <label for="repwd">Confirm Password</label>
+          	        <input type="password" id="repwd" name="repwd" required/>
+
+          	        <input type="submit" value="Sign up" class="button" />
+
+                    <p class="text-a">
+                    <input type="checkbox" id="agree" required>
+                    <label for="agree">I agree to the <a href="policy.html">Privacy Policy</a></label></p>
+          	      </div>
+          	  </form>
+          	  
+            </div>
+            
+            <!-- 폼 스크립트 -->
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+            <script type="text/javascript">
+            $(document).ready(function(){
+            	  $('.tab a').on('click', function (e) {
+            	  e.preventDefault();
+
+            	  $(this).parent().addClass('active');
+            	  $(this).parent().siblings().removeClass('active');
+
+            	  var href = $(this).attr('href');
+            	  $('.forms > form').hide();
+            	  $(href).fadeIn(500);
+
+            	});
+            });
+            </script>
+
+    </div>
+    
+  <hr id="line">
+    
+    <footer>
+		<div id="footer">
+          <ul>
+              <li><a href="#"><b>F&Q</b></a></li>
+              <li><a href="#"><b>boutique</b></a></li>
+              <li><a href="#"><b>house of chanel</b></a></li>
+
+          </ul>
+      </div>
+    </footer>
+</body>
+</html>

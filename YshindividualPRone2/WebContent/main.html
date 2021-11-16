@@ -1,0 +1,263 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/YshindividualPRone/public/css2/style2.css">
+    <link rel="stylesheet" href="${project}login/style.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+      *{
+        font-family: "Bahnschrift Light";
+        color: #000;
+      }
+
+        div {
+          color: #000;
+            padding:5px; margin:3px;
+            text-align:center;
+        }
+
+        table{
+
+          width:335px;
+        }
+
+        #con {
+            width:1000px;
+            margin:0 auto;
+            overflow:hidden;
+        }
+
+        #header {
+            border-top:10px solid black;
+            line-height:100px;
+            font-color:#000;
+            font-size:25px;
+            width:980px; 
+            height:90px;
+            line-height:80px;
+        }
+
+        #menu {
+	        overflow:hidden; 
+            font-size: 12px;
+            width:980px;
+
+        }
+
+        #menu ul { overflow:hidden; }
+
+        #menu ul li {
+            width:25%;
+            line-height:40px;
+            text-align:center;
+            list-style:none;
+            float:left;
+        }
+
+        #wrap {
+            width:980px;
+            min-height:600px;
+            overflow:hidden;
+        }
+
+        #content {
+	        overflow:hidden; 
+	        margin:0 auto;
+            width:970px; 
+            float:left;
+        }
+
+        #footer ul { 
+	        width:980px;
+	    	margin:0 auto;
+	        overflow:hidden;
+	    }
+
+        #footer ul li {
+
+            font-size: 15px;
+            width:32%; height:80px;
+            line-height:40px;
+            text-align:center;
+            list-style:none;
+            float:left;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        #submenu1 ul{
+          list-style:none;
+          padding:2px;
+
+        }
+
+        #submenu1, #submenu2, #submenu3{
+          display: none;
+          padding: 5px;
+
+        }
+
+        #menu li:hover #submenu1{
+          display: block;
+
+        }
+
+        #menu li:hover #submenu2{
+          display: block;
+        }
+
+        #menu li:hover #submenu3{
+          display: block;
+        }
+
+        #line{
+          border: 1px solid #D7DBDD;
+          width: 980px;
+
+        }
+
+        b{
+          font-family: "couture";
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="con">
+        <div id="header">
+
+          <p > &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="main.jsp"><b>CHANEL</b></a> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          <a href="search.html"><img src="${project}search_icon.png" id="search" width="15px"></a>
+          <a href="login.do"><img src="${project}login_icon.png" id="login" width="15px"></a>
+          <a href="mypage.html"><img src="${project}cart_icon.png" id="cart" width="15px"></a>
+          <a href="#"><img src="${project}loc_icon.png" id="loc" width="15px"></a>
+
+          </p>
+        </div>
+
+
+<!-- IDEA: id는 한번만 class는 중복 가능 -->
+        <div id="menu"> <!-- IDEA: 상위 메뉴묶음 -->
+            <ul>
+                <li><a href="perfume.html"><b>fragrance</b></a>  <!-- IDEA: 상위메뉴1 -->
+                  <div id="submenu1">
+                    <table class="table">
+                      <tr>
+                        <td><a href="#"><b>WOMEN</b></a></td>
+                        <td><a href="#"></a></td>
+                        <td><a href="#"><b>MEN</b></a></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">Chance</a></td>
+                        <td><a href="n5.html">N°5</a></td>
+                        <td><a href="#">blue de chanel</a></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">Coco</a></td>
+                        <td><a href="Mademoisel.html">Coco Mademoiselle</a></td>
+                      </tr>
+                    </table>
+                  </div>
+                  </li>
+
+                <li><a href="#"><b>makeup</b></a>
+                <div id="submenu2">
+                  <table class="table"> 
+                  <tr>
+                    <td><a href="#"><b>skin</b></a></td>
+                    <td><a href="#"><b>lip</b></a></td>
+                    <td><a href="#"><b>eye</b></a></td>
+                  </tr>
+
+                  <tr>
+                    <td><a href="#">base</a></td>
+                    <td><a href="#">lipstick</a></td>
+                    <td><a href="#">mascara</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><a href="#">concealer</a></td>
+                    <td><a href="#">lip care</a></td>
+                    <td><a href="#">eyeshadow</a></td>
+                  </tr>
+
+                  <tr>
+                    <td><a href="#">powder</a></td>
+                    <td><a href="#">lip pencil</a></td>
+                    <td><a href="#">pencil/liner</a></td>
+                  </tr>
+
+                  </table>
+                </div>
+                </li>
+
+                <li ><a href="#"><b>skincare</b></a>
+                  <div id="submenu3">
+                    <table class="table">
+                      <tr>
+                        <td ><b>category</b></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">cream</a></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">serum</a></td>
+                      </tr>
+
+                      <tr>
+                        <td><a href="#">body care</a></td>
+                      </tr>
+                    </table>
+
+                  </div>
+
+                </li>
+
+                <li><a href="#"><b> special edition</b></a></li>
+            </ul>
+        </div>
+
+        <div id="wrap">
+            <div id="content">
+              <slider>
+               <slide><p> </p></slide>
+               <slide><p> </p></slide>
+               <slide><p> </p></slide>
+               <slide><p> </p></slide>
+              </slider>
+             </div>
+        </div>
+
+    </div>
+    
+  <hr id="line">
+    
+    <footer>
+		<div id="footer">
+          <ul>
+              <li><a href="#"><b>F&Q</b></a></li>
+              <li><a href="#"><b>boutique</b></a></li>
+              <li><a href="#"><b>house of chanel</b></a></li>
+
+          </ul>
+      </div>
+    </footer>
+</body>
+</html>
