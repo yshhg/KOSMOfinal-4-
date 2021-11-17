@@ -5,7 +5,7 @@
 								http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
 			id="WebApp_ID" version="3.1">
 		
-	<display-name>springHbe</display-name>
+	<display-name>Hoppies</display-name>
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
@@ -21,7 +21,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>spring</servlet-name>
-		<url-pattern>*.h</url-pattern>
+		<url-pattern>*.</url-pattern>
 	</servlet-mapping>	
 	
 	<!-- POST 방식 인코딩 -->
