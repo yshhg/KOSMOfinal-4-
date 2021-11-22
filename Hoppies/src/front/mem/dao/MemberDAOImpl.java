@@ -2,7 +2,7 @@ package front.mem.dao;
 
 import java.util.List;
 
-import front.mem.vo.memberVO;
+import front.mem.vo.MemberVO;
 
 
 import org.apache.log4j.Logger;
@@ -25,8 +25,8 @@ import org.springframework.stereotype.Repository;
 
 //@service 패키지는 DB에 접근하는 코드는 repository에 위임하고, 비즈니스 로직과 관련된 모든 코드가 모여있습니다.
 @Repository
-public class memberDAOImpl implements memberDAO {
-	Logger logger = Logger.getLogger(memberDAOImpl.class);
+public class MemberDAOImpl implements MemberDAO {
+	Logger logger = Logger.getLogger(MemberDAOImpl.class);
 	
 	@Autowired(required=false)	
 	private SqlSessionTemplate sqlSession;
@@ -34,7 +34,7 @@ public class memberDAOImpl implements memberDAO {
 			
 
 	@Override
-	public List<memberVO> memberSelectAll(memberVO mvo) {
+	public List<MemberVO> memberSelectAll(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		logger.info("memberDAOImpl memberSelectAll() 함수진입");
 		
@@ -49,32 +49,32 @@ public class memberDAOImpl implements memberDAO {
 	}
 
 	@Override
-	public List<memberVO> memberSelect(memberVO mvo) {
+	public List<MemberVO> memberSelect(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		logger.info("memberDAOImpl memberSelect() 함수 진입");	
 		return sqlSession.selectList("memberSelect",mvo);
 	}
 
 	@Override
-	public int memberInsert(memberVO mvo) {
+	public int memberInsert(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		return (Integer)sqlSession.insert("memberInsert",mvo);
 	}
 
 	@Override
-	public int memberUpdate(memberVO mvo) {
+	public int memberUpdate(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		return (Integer)sqlSession.update("memberUpdate", mvo);
 	}
 
 	@Override
-	public int memberDelete(memberVO mvo) {
+	public int memberDelete(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		return (Integer)sqlSession.delete("memberDelete",mvo);
 	}
 
 	@Override
-	public List<memberVO> memberIdCheck(memberVO mvo) {
+	public List<MemberVO> memberIdCheck(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("memberIdCheck",mvo);
 	}

@@ -19,18 +19,18 @@ import front.common.ChabunUtil;
 import front.common.CommonUtils;
 import front.common.FileUploadUtil;
 import front.common.service.ChabunService;
-import front.mem.service.memberService;
-import front.mem.vo.memberVO;
+import front.mem.service.MemberService;
+import front.mem.vo.MemberVO;
 
-public class memberController {
-	Logger logger = Logger.getLogger(memberController.class);
+public class MemberController {
+	Logger logger = Logger.getLogger(MemberController.class);
 	
-	private memberService MemberService;
+	private MemberService MemberService;
 	private ChabunService chabunService;
 	
 	// 생성자 오토와이어드
 	@Autowired(required=false)
-	public memberController(memberService MemberService,
+	public MemberController(MemberService MemberService,
 							ChabunService chabunService) {
 		
 		this.MemberService = MemberService;
@@ -67,8 +67,8 @@ public class memberController {
 		logger.info("SpringMemberController memInsert bool >>> : " + bool);
 
 		// 채번, 이미지 업로드 성공하면 VO 세팅하기 
-		memberVO mvo = null;
-		mvo = new memberVO();
+		MemberVO mvo = null;
+		mvo = new MemberVO();
 		
 		// 회원번호
 		mvo.setMnum(mnum);
@@ -89,28 +89,26 @@ public class memberController {
 		// 지역
 		mvo.setMarea(fu.getParameter("Marea"));
 		
-		// 회원 목록 조회
-		@RequestMapping(value="memSelectAll", method = RequestMethod.GET)
-		public String memSelectAll(memberVO mvo, Model model) {
-			logger.info("memberController memSelectAll 함수 진입 >>> :");	
-			
-			List<memberVO> listAll = memberService.memberSelectAll(mvo);
-			logger.info("SpringMemberController memSelectAll listAll.size() >>> : " + listAll.size());
-			
-			if (listAll.size() > 0) { 
-				
-				model.addAttribute("listAll", listAll);
-				return "mem/memSelectAll";
-			}
-			
-			return "mem/memForm";
-		
-		}
-		
-		
-		
-		
+		return "mem/memForm";
 	}
+	
+	// 회원 목록 조회
+			@RequestMapping(value="memSelectAll", method = RequestMethod.GET)
+			public String memSelectAll(MemberVO mvo, Model model) {
+				logger.info("memberController memSelectAll 함수 진입 >>> :");	
+				
+				List<MemberVO> listAll = MemberService.memberSelectAll(mvo);
+				logger.info("SpringMemberController memSelectAll listAll.size() >>> : " + listAll.size());
+				
+				if (listAll.size() > 0) { 
+					
+					model.addAttribute("listAll", listAll);
+					return "mem/memSelectAll";
+				}
+				
+				return "mem/memForm";
+			
+			}
 	
 	
 

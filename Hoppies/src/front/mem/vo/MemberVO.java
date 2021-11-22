@@ -2,10 +2,10 @@ package front.mem.vo;
 
 import org.apache.log4j.Logger;
 
-import front.mem.controller.memberController;
+import front.mem.controller.MemberController;
 
-public class memberVO {
-	private static Logger logger = Logger.getLogger(memberVO.class);
+public class MemberVO {
+	private static Logger logger = Logger.getLogger(MemberVO.class);
 			
 	private String mnum;
 	private String mname;
@@ -22,11 +22,11 @@ public class memberVO {
 	private String tempauthmemail;
 	private String tempauthnum;
 	
-	public memberVO() {
+	public MemberVO() {
 		
 	}
 	
-	public memberVO(String mnum, String mid, String mpw,String mname,
+	public MemberVO(String mnum, String mid, String mpw,String mname,
 						  String madmin, String mhobby_1, String mhobby_2,
 						  String mhobby_3, String marea, String deleteyn,
 						  String insertdate, String updatedate, String tempauthmemail,
@@ -162,7 +162,7 @@ public class memberVO {
 	}
 	
 	// 매개변수 확인
-	public static void printVO(memberVO mvo) {
+	public static void printVO(MemberVO mvo) {
 		logger.info("memberVO 데이터 확인 : >>>");
 		
 		logger.info("회원번호 >>> : " + mvo.getMnum());

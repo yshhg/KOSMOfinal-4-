@@ -14,7 +14,7 @@ SqlSession 인터페이스를 구현하는 Singleton 버전의 SqlSession 구성
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import front.mem.vo.memberVO;
+import front.mem.vo.MemberVO;
 
 @Repository
 public class ChabunDAOImpl implements ChabunDAO {
@@ -29,7 +29,7 @@ public class ChabunDAOImpl implements ChabunDAO {
 	*/
 	
 	@Override
-	public memberVO getMemChabun() {
+	public MemberVO getMemChabun() {
 		// TODO Auto-generated method stub
 		logger.info("ChabunDAOImpl getMemChabun >>> : ");
 		return sqlSession.selectOne("getMemChabun");

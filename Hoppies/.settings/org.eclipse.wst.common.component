@@ -2,7 +2,7 @@
     <wb-module deploy-name="Hoppies">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="Hoppies"/>
         <property name="java-output-path" value="/Hoppies/WebContent/WEB-INF/classes"/>
+        <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>

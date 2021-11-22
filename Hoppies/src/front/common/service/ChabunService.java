@@ -1,10 +1,10 @@
 package front.common.service;
 
-import front.mem.vo.memberVO;
+import front.mem.vo.MemberVO;
 
 public interface ChabunService {
 	
-	public memberVO getMemChabun();
+	public MemberVO getMemChabun();
 	
 
 }

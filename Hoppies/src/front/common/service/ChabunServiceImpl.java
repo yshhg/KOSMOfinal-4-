@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import front.common.DAO.ChabunDAO;
-import front.mem.vo.memberVO;
+import front.mem.vo.MemberVO;
 
 
 @Service
@@ -25,7 +25,7 @@ public class ChabunServiceImpl implements ChabunService {
 	
 	
 	@Override
-	public memberVO getMemChabun() {
+	public MemberVO getMemChabun() {
 		// TODO Auto-generated method stub
 		logger.info("ChabunServiceImpl getMemChabun >>> : ");
 		return chabunDAO.getMemChabun();

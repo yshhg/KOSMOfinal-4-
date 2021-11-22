@@ -2,59 +2,59 @@ package front.mem.service;
 
 import java.util.List;
 
-import front.mem.vo.memberVO;
-import front.mem.dao.memberDAO;
+import front.mem.vo.MemberVO;
+import front.mem.dao.MemberDAO;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class memberServiceImpl implements memberService {
-	Logger logger = Logger.getLogger(memberServiceImpl.class);
+public class MemberServiceImpl implements MemberService {
+	Logger logger = Logger.getLogger(MemberServiceImpl.class);
 
-	private memberDAO memberDAO;
+	private MemberDAO memberDAO;
 	
 	@Autowired(required=false)
-	public memberServiceImpl(memberDAO memberDAO){
+	public MemberServiceImpl(MemberDAO memberDAO){
 		this.memberDAO = memberDAO;
 	}
 	
 	
 	@Override
-	public List<memberVO> memberSelectAll(memberVO mvo) {
+	public List<MemberVO> memberSelectAll(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		logger.info("memberServiceImpl memberSelectAll() 함수 진입");
 		return memberDAO.memberSelectAll(mvo);
 	}
 
 	@Override
-	public List<memberVO> memberSelect(memberVO mvo) {
+	public List<MemberVO> memberSelect(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		logger.info("memberServiceImpl memberSelect() 함수 진입");
 		return memberDAO.memberSelect(mvo);
 	}
 
 	@Override
-	public int memberInsert(memberVO mvo) {
+	public int memberInsert(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		logger.info("memberServiceImpl memberInsert() 함수 진입");
 		return memberDAO.memberInsert(mvo);
 	}
 
 	@Override
-	public int memberUpdate(memberVO mvo) {
+	public int memberUpdate(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		logger.info("memberServiceImpl memberUpdate() 함수진입");
 		return memberDAO.memberUpdate(mvo);
 	}
 
 	@Override
-	public int memberDelete(memberVO mvo) {
+	public int memberDelete(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		logger.info("memberServiceImpl memberDelete() 함수진입");
 		return memberDAO.memberDelete(mvo);
 	}
 
 	@Override
-	public List<memberVO> memberIdCheck(memberVO mvo) {
+	public List<MemberVO> memberIdCheck(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		logger.info("memberServiceImpl memberIdCheck() 함수진입");
 		return memberDAO.memberIdCheck(mvo);
