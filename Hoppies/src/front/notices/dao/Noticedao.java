@@ -2,7 +2,7 @@ package front.notices.dao;
 
 import java.util.ArrayList;
 
-import a.b.c.com.notice.vo.NoticeVO;
+import front.notices.vo.NoticeVO;
 
 public interface Noticedao {
 	

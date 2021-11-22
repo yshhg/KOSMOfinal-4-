@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import a.b.c.com.common.ConnProperty;
-import a.b.c.com.notice.sql.NoticeSqlMap;
-import a.b.c.com.notice.vo.NoticeVO;
+import front.notices.common.ConnProperty;
+import front.notices.sql.NoticeSqlMap;
+import front.notices.vo.NoticeVO;
 
 public class NoticedaoImpl implements Noticedao {
 

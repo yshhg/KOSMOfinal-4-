@@ -2,9 +2,9 @@ package front.notices.service;
 
 import java.util.ArrayList;
 
-import a.b.c.com.notice.dao.Noticedao;
-import a.b.c.com.notice.dao.NoticedaoImpl;
-import a.b.c.com.notice.vo.NoticeVO;
+import front.notices.dao.Noticedao;
+import front.notices.dao.NoticedaoImpl;
+import front.notices.vo.NoticeVO;
 
 public class NoticeServiceImpl implements NoticeService {
 
