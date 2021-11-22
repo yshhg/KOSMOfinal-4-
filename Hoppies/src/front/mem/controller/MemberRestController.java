@@ -9,7 +9,7 @@ public class MemberRestController {
 	
 	@RequestMapping(value = "/")
 	public String index() {
-		return "/front/mem/MemForm";
+		return "/front/mem/member";
 	}
 	
 	@RequestMapping(value = "/login")

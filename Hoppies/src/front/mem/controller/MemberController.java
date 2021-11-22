@@ -42,7 +42,7 @@ public class MemberController {
 	@GetMapping("memForm")
 	public String memberForm() {
 		logger.info("memberController memberForm() 함수 진입");
-		return "mem/MemForm";
+		return "mem/member";
 	}
 	
 	// 회원가입
@@ -56,9 +56,9 @@ public class MemberController {
 		logger.info("memberController memInsert mnum >> : " + mnum);
 		
 		// 이미지 업로드 
-				FileUploadUtil fu = new FileUploadUtil(	 CommonUtils.MEMBER_IMG_UPLOAD_PATH
-											           	,CommonUtils.MEMBER_IMG_FILE_SIZE
-											           	,CommonUtils.MEMBER_EN_CODE);
+		FileUploadUtil fu = new FileUploadUtil(	 CommonUtils.MEMBER_IMG_UPLOAD_PATH
+									           	,CommonUtils.MEMBER_IMG_FILE_SIZE
+									           	,CommonUtils.MEMBER_EN_CODE);
 				
 		// 이미지 파일 원본 사이즈 
 		// boolean bool = fu.imgfileUpload(req);
