@@ -9,12 +9,12 @@ public class MemberRestController {
 	
 	@RequestMapping(value = "/")
 	public String index() {
-		return "/front/mem/member";
+		return "front/mem/member";
 	}
 	
 	@RequestMapping(value = "/login")
 	public String login() {
-		return "/front/login/login";
+		return "front/login/login";
 	}
 
 }
