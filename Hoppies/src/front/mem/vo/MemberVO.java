@@ -181,7 +181,7 @@ public class MemberVO {
 		logger.info("아이디찾기  이메일 >>> : " + mvo.getTempauthmemail());
 		logger.info("아이디찾기  인증번호 >>> : " + mvo.getTempauthnum());
 		
-		logger.info("SpringMemberVO 데이터 확인 끝  >>> : ");	
+		logger.info("MemberVO 데이터 확인 끝  >>> : ");	
 		
 	}
 	

@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>index.jsp</h3>
+<h3>메인화면 페이지</h3>
 <hr> 
-<a href="MemForm.s">member</a>
+<a href="MemForm.s"></a>
 </body>
 </html>

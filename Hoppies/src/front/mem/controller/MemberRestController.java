@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/front/mem")
 public class MemberRestController {
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "MemForm")
 	public String index() {
-		return "front/mem/member";
+		return "front/mem/MemForm";
 	}
 	
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "login")
 	public String login() {
-		return "front/login/login";
+		return "front/mem/login";
 	}
 
 }
