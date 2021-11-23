@@ -9,6 +9,6 @@
 <body>
 <h3>index.jsp</h3>
 <hr> 
-<a href="Member.s">member</a>
+<a href="MemForm.s">member</a>
 </body>
 </html>

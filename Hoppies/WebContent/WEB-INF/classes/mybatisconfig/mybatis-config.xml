@@ -3,11 +3,7 @@
           "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<typeAliases>
-		<typeAlias type="a.b.c.com.board.vo.SpringBoardVO" alias="boardVO"/>
-		<typeAlias type="a.b.c.com.rboard.vo.SpringRboardVO" alias="rboardVO"/>		
+	<typeAliases>	
 		<typeAlias type="front.mem.vo.MemberVO" alias="memberVO"/>
-		<typeAlias type="a.b.c.com.login.vo.TempAuthNumVO" alias="authnumVO"/>	
-		<typeAlias type="a.b.c.com.login.vo.TempPwVO" alias="pwVO"/>
 	</typeAliases>
 </configuration>
