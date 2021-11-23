@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import front.common.DAO.ChabunDAO;
+import front.common.dao.ChabunDAO;
 import front.mem.vo.MemberVO;
 
 
