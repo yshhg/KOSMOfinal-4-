@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>회원가입</title>
-<link rel="stylesheet" href="../../../css/front/mem/member.css">
+<link rel="stylesheet" href="/Hoppies/css/front/mem/member.css">
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 </head>

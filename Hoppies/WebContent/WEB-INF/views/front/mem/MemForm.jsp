@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>회원가입</title>
-<link rel="stylesheet" href="/Hoppies/css/front/mem/member.css">
+<link rel="stylesheet" href="../../../css/front/mem/member.css">
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script type="text/javascript" src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>

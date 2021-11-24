@@ -9,6 +9,6 @@
 <body>
 <h3>메인화면 페이지</h3>
 <hr> 
-<a href="MemForm.s"></a>
+<a href="/front/mem/MemForm.s">회원가입</a>
 </body>
 </html>
