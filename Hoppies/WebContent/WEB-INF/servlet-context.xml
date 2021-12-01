@@ -22,6 +22,7 @@
 			class= "org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
 			<property name="dataSource" ref="dataSource"/>
 	</bean>
+	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage"><value>front.**.dao</value></property>
 	</bean>

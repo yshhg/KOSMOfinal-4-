@@ -2,6 +2,8 @@ package front.common;
 
 public class ChabunUtil {
 	
+	public static final String BIZ_GUBUN_GB = "GB"; // 게임 보드 채번
+	
 	public static final String BIZ_GUBUN_M = "M";
 	public static final String BIZ_GUBUN_B = "B";
 	public static final String BIZ_GUBUN_RB = "RB";
@@ -38,9 +40,18 @@ public class ChabunUtil {
 		return BIZ_GUBUN_N.concat(ChabunUtil.numPad(type, memNum));
 	}
 	
+	// 2021-12-01 게임 보드
+	
+	public static String getGameBoardChabun(String type, String memNum) {
+		
+		return BIZ_GUBUN_GB.concat(ChabunUtil.numPad(type, memNum));
+	}
+	
 	public static void main(String[] args) {
 		
 		String c = "1";
+		System.out.println(">>> : " + ChabunUtil.getGameBoardChabun("G", c));
+		//
 		System.out.println(">>> : " + ChabunUtil.getMemChabun("m", c));
 		System.out.println(">>> : " + ChabunUtil.getBoardChabun("N", c));
 		System.out.println(">>> : " + ChabunUtil.getRboardChabun("N", c));

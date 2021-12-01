@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="front.gameboard.dao.GameBoardDAO">
+
+<resultMap type="front.gameboard.vo.GameBoardVO" id="gvo">
+	<result property="gnum" 		column="GNUM"/>
+	<result property="gnickname"	column="GNICKNAME"/>
+	<result property="gsubject"		column="GSUBJECT"/>
+	<result property="gcontents" 	column="GCONTENTS"/>
+	<result property="gdivi"		column="GDIVI"/>
+	<result property="mno"			column="MNO"/>
+	<result property="recom" 		column="RECOM"/>
+	<result property="unrecom"		column="UNRECOM"/>
+	<result property="photo"		column="PHOTO"/>
+</resultMap>
+
+<insert id="gameboardInsert" parameterType="gameboardVO">
+
+	INSERT INTO GAME		( 	GNUM, 
+								GNICKNAME, 
+								GSUBJECT,
+	                          	GCONTENTS, 
+	                          	GDIVI,
+	                          	MNO,
+	                          	RECOM, 
+	                          	UNRECOM,
+	                          	PHOTO,
+	                          	DELETEYN, 
+	                          	INSERTDATE, 
+	                          	UPDATEDATE) 
+	                  VALUES( 	#{gnum, jdbcType=VARCHAR}, 
+	                  			#{gnickname, jdbcType=VARCHAR},
+	                  			#{gsubject,  jdbcType=VARCHAR}, 
+	                  			#{gcontents, jdbcType=VARCHAR},
+	                          	#{gdivi, jdbcType=VARCHAR},
+	                          	#{mno, jdbcType=VARCHAR},
+	                          	#{recom, jdbcType=VARCHAR}, 
+	                          	#{unrecom, jdbcType=VARCHAR}, 
+	                          	#{photo, jdbcType=VARCHAR},
+	                          	'Y', 
+	                          	SYSDATE, 
+	                          	SYSDATE)
+</insert>
+
+<select id="gameboardSelectPaging" parameterType="gameboardVO" resultType="gameboardVO">	
+	SELECT * FROM (
+		SELECT 	A.GNUM 		GNUM
+		       ,A.GNICKNAME GNICKNAME
+		       ,A.GSUBJECT 	GSUBJECT
+		       ,A.GCONTENTS GCONTENTS
+		       ,A.GDIVI		GDIVI
+		       ,A.MNO		MNO
+		       ,A.RECOM 	RECOM
+		       ,A.UNRECOM 	UNRECOM
+		       ,A.PHOTO		PHOTO
+		       ,TO_CHAR(A.INSERTDATE, 'YYYY-MM-DD') INSERTDATE
+		       ,TO_CHAR(A.UPDATEDATE, 'YYYY-MM-DD') UPDATEDATE	  
+		       <!--  ? : 페이지 사이즈 : pageSize  -->
+		       ,CEIL(ROW_NUMBER() OVER(ORDER BY A.GNUM)/ #{pageSize, jdbcType=VARCHAR} ) pageSize		
+			   ,COUNT(A.GNUM) OVER() AS totalCount       
+		FROM 	GAME A
+		WHERE 	A.DELETEYN = 'Y' 	
+		ORDER BY 1 DESC  
+		<!--  ? : 현재 페이지 : curPage -->
+	) WHERE pageSize = #{curPage, jdbcType=VARCHAR}
+</select>
+
+<select id="gameboardSelectAll" parameterType="gameboardVO" resultType="gameboardVO">	
+	SELECT 	A.GNUM 		GNUM
+		   ,A.GNICKNAME GNICKNAME
+		   ,A.GSUBJECT 	GSUBJECT
+		   ,A.GCONTENTS GCONTENTS
+		   ,A.GDIVI		GDIVI
+		   ,A.MNO		MNO
+		   ,A.RECOM 	RECOM
+		   ,A.UNRECOM 	UNRECOM
+		   ,A.PHOTO		PHOTO
+	       ,TO_CHAR(A.INSERTDATE, 'YYYY-MM-DD') INSERTDATE
+	       ,TO_CHAR(A.UPDATEDATE, 'YYYY-MM-DD') UPDATEDATE	     
+	FROM 	GAME A
+	WHERE 	A.DELETEYN = 'Y' 
+	<if test="startdate!=null and startdate!='' and enddate!=null and enddate!=''">
+		<![CDATA[AND TO_CHAR(A.INSERTDATE, 'YYYY-MM-DD') >= TO_CHAR(TO_DATE(#{startdate, jdbcType=VARCHAR}), 'YYYY-MM-DD')]]>
+		<![CDATA[AND TO_CHAR(A.INSERTDATE, 'YYYY-MM-DD') <= TO_CHAR(TO_DATE(#{enddate, jdbcType=VARCHAR}), 'YYYY-MM-DD')]]>
+	</if>
+	<if test="keyfilter=='key1'">
+		<![CDATA[AND A.GSUBJECT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+	</if>
+	<if test="keyfilter=='key2'">
+		<![CDATA[AND A.GCONTENTS LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+	</if>
+	<if test="keyfilter=='key3'">
+		<![CDATA[AND A.GSUBJECT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+		<![CDATA[OR A.GCONTENTS LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>			
+	</if>
+	<if test="keyfilter=='key4'">
+		<![CDATA[AND A.GNICKNAME LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>			
+	</if>
+	<if test="keyfilter=='key5'">
+		<![CDATA[AND A.GNUM LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>			
+	</if>
+	ORDER BY 1 DESC  
+</select>
+
+<select id="gameboardSelect" parameterType="gameboardVO" resultType="gameboardVO">
+	SELECT  A.GNUM 		GNUM
+		   ,A.GNICKNAME GNICKNAME
+		   ,A.GSUBJECT 	GSUBJECT
+		   ,A.GCONTENTS GCONTENTS
+		   ,A.GDIVI		GDIVI
+		   ,A.MNO		MNO
+		   ,A.RECOM 	RECOM
+		   ,A.UNRECOM 	UNRECOM
+		   ,A.PHOTO		PHOTO
+	       ,TO_CHAR(A.INSERTDATE, 'YYYY-MM-DD') INSERTDATE
+	       ,TO_CHAR(A.UPDATEDATE, 'YYYY-MM-DD') UPDATEDATE
+	FROM GAME A WHERE A.DELETEYN='Y' AND A.GNUM = #{gnum, jdbcType=VARCHAR}
+</select>
+
+<update id="gameboardUpdate" parameterType="gameboardVO">
+	UPDATE GAME SET GCONTENTS=#{gcontent, jdbcType=VARCHAR}, UPDATEDATE = SYSDATE
+	WHERE DELETEYN = 'Y' AND GNUM = #{gnum, jdbcType=VARCHAR}
+</update>
+
+<update id="gameboardDelete" parameterType="gameboardVO">
+	UPDATE GAME SET DELETEYN = 'N', UPDATEDATE = SYSDATE
+	WHERE DELETEYN = 'Y' AND GNUM = #{gnum, jdbcType=VARCHAR}
+</update>
+
+</mapper>
+

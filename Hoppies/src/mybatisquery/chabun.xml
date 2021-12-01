@@ -8,4 +8,8 @@
 	SELECT NVL(MAX(SUBSTR(A.MNUM, -4)), 0) + 1  MNUM FROM SPRING_MEMBER A
 </select>
 
+<select id="getGameBoardChabun" resultType="gameboardVO">
+	SELECT NVL(MAX(SUBSTR(A.GNUM, -4)), 0) + 1  SBNUM FROM GAME A
+</select>
+
 </mapper>			

@@ -56,9 +56,9 @@ public class MemberController {
 		logger.info("memberController memInsert mnum >> : " + mnum);
 		
 		// 이미지 업로드 
-		FileUploadUtil fu = new FileUploadUtil(	 CommonUtils.MEMBER_IMG_UPLOAD_PATH
-									           	,CommonUtils.MEMBER_IMG_FILE_SIZE
-									           	,CommonUtils.MEMBER_EN_CODE);
+		FileUploadUtil fu = new FileUploadUtil(	 CommonUtils.G_BOARD_IMG_UPLOAD_PATH
+									           	,CommonUtils.G_BOARD_IMG_FILE_SIZE
+									           	,CommonUtils.G_BOARD_EN_CODE);
 				
 		// 이미지 파일 원본 사이즈 
 		// boolean bool = fu.imgfileUpload(req);

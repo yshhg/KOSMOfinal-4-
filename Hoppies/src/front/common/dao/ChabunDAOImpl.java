@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
+import front.gameboard.vo.GameBoardVO;
 import front.mem.vo.MemberVO;
 
 
@@ -17,7 +17,12 @@ public class ChabunDAOImpl implements ChabunDAO {
 	@Autowired(required=false)
 	private SqlSessionTemplate sqlSession;
 	
-
+	@Override
+	public GameBoardVO getGameBoardChabun() {
+		// TODO Auto-generated method stub
+		logger.info("ChabunDAOImpl.getGameBoardChabun >>> : ");
+		return sqlSession.selectOne("getGameBoardChabun");
+	}
 
 	@Override
 	public MemberVO getMemChabun() {
