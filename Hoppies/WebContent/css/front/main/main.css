@@ -10,7 +10,17 @@
     margin: 0;
     padding: 0;
 }
+body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
 
+.dark-mode {
+  background-color: #202020;
+  color: #D9D9D9;
+}
 
 .main-form {position: relative; z-index: 2;}
 .main-form h1 {

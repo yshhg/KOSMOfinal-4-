@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Hoppies</title>
  <link rel="stylesheet" href="../../../css/front/main/main.css">
+ 
  <script type = "text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
  
@@ -47,12 +48,39 @@
 <!--  <div class="hightemp">최고 온도 : </div>-->
 </div>
 <h5 class="time"></h5>
-
+<button type="button" onclick="homzzang()">모드 전환</button>
+<div id="theme"></div>
 
 <!-- <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
  	  아이콘 출력 : http://openweathermap.org/img/wn/10d@2x.png  끝에 @2x는 모바일용에만 적용한다. (2배키우라는 뜻)
  -->
 </h3>
+<script>
+// On page load set the theme.
+// On page load set the theme.
+(function() {
+  let onpageLoad = localStorage.getItem("theme") || "";
+  let element = document.body;
+  element.classList.add(onpageLoad);
+  document.getElementById("theme").textContent =
+    localStorage.getItem("theme") || "light";
+})();
+
+function homzzang() {
+  let element = document.body;
+  element.classList.toggle("dark-mode");
+
+  let theme = localStorage.getItem("theme");
+  if (theme && theme === "dark-mode") {
+    localStorage.setItem("theme", "");
+  } else {
+    localStorage.setItem("theme", "dark-mode");
+  }
+
+  document.getElementById("theme").textContent = localStorage.getItem("theme");
+}
+</script>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	
