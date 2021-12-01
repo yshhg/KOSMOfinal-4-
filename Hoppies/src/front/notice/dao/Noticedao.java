@@ -1,8 +1,8 @@
-package front.notices.dao;
+package front.notice.dao;
 
 import java.util.ArrayList;
 
-import front.notices.vo.NoticeVO;
+import front.notice.vo.NoticeVO;
 
 public interface Noticedao {
 	

@@ -1,4 +1,4 @@
-package front.notices.sql;
+package front.notice.sql;
 
 public abstract class NoticeSqlMap {
 	
@@ -83,10 +83,10 @@ public static String getMaxChabunQuery() {
 		sb.append("	UPDATE  							\n");	
 		sb.append("		   	 NOTICE 			    \n");	
 		sb.append("	SET  								\n");		
-		sb.append("			 NSUBJECT 		= ?			\n"); // placeholder 1	  
-		sb.append("			,NMEMO   		= ?			\n"); // placeholder 2			
+		sb.append("			 NSUBJECT 		= ?			\n");   
+		sb.append("			,NMEMO   		= ?			\n");		
 	    sb.append("		  	,NUPDATEDATE 	= SYSDATE	\n");
-		sb.append("	WHERE  	 NNUM 			= ?			\n"); // placeholder 3	    
+		sb.append("	WHERE  	 NNUM 			= ?			\n");    
 		sb.append("	AND    	 DELETEYN 		= 'Y'  		\n");		
 					
 		return sb.toString();
@@ -100,7 +100,7 @@ public static String getMaxChabunQuery() {
 		sb.append("	SET  								\n");
 	    sb.append("		   DELETEYN 	= 'N'			\n");	    	   
 	    sb.append("		  ,NUPDATEDATE 	= SYSDATE		\n");
-		sb.append("	WHERE  NNUM 		= ?				\n"); // placeholder 1    
+		sb.append("	WHERE  NNUM 		= ?				\n"); 
 		sb.append("	AND    DELETEYN 	= 'Y'  			\n");		
 					
 		return sb.toString();

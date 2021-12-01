@@ -1,4 +1,4 @@
-package front.notices.vo;
+package front.notice.vo;
 
 public class NoticeVO {
 	
@@ -64,22 +64,10 @@ public class NoticeVO {
 	}
 	
 	public static void printNoticeVO(NoticeVO nvo) {
-		System.out.print(nvo.getNnum() 			+ ", ");
-		System.out.print(nvo.getNsubject() 		+ ", ");
-		System.out.print(nvo.getNmemo()			+ ", ");
-		System.out.print(nvo.getNphoto() 		+ ", ");					
-		System.out.print(nvo.getDeleteyn() 		+ ", ");
-		System.out.print(nvo.getnInsertdate() 	+ ", ");
-		System.out.println(nvo.getnUpdatedate());
 		}
 	public static void printlnNoticeVO(NoticeVO nvo) {
 		
-		System.out.println("nvo.getNnum() 				>>> : " + nvo.getNnum());
-		System.out.println("nvo.getNsubject() 			>>> : " + nvo.getNsubject());
-		System.out.println("nvo.getNmemo() 				>>> : " + nvo.getNmemo());		
-		System.out.println("nvo.getNphoto() 			>>> : " + nvo.getNphoto());					
-		System.out.println("nvo.getDeleteyn() 			>>> : " + nvo.getDeleteyn());
-		System.out.println("nvo.getnInsertdate() 		>>> : " + nvo.getnInsertdate());
-		System.out.println("nvo.getnUpdatedate() 		>>> : " + nvo.getnUpdatedate());
-	}		
+		}
 	}
+	
+	

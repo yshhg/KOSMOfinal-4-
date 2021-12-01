@@ -1,4 +1,4 @@
-package front.notices.common;
+package front.notice.common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

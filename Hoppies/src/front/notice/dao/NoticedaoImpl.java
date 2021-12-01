@@ -1,13 +1,13 @@
-package front.notices.dao;
+package front.notice.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import front.notices.common.ConnProperty;
-import front.notices.sql.NoticeSqlMap;
-import front.notices.vo.NoticeVO;
+import front.notice.common.ConnProperty;
+import front.notice.sql.NoticeSqlMap;
+import front.notice.vo.NoticeVO;
 
 public class NoticedaoImpl implements Noticedao {
 
@@ -120,7 +120,7 @@ public class NoticedaoImpl implements Noticedao {
 
 		NoticeVO.printlnNoticeVO(nvo);
 		
-		// 사용할 객체를 지역변수로 선언하고 초기화 하기 
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int nCnt = 0;
@@ -132,7 +132,7 @@ public class NoticedaoImpl implements Noticedao {
 			pstmt = conn.prepareStatement(NoticeSqlMap.getNoticeInsertQuery());
 			
   			
-			// 파라미터 클리어 꼭 하기 
+			
 			pstmt.clearParameters();			
 			pstmt.setString(1, nvo.getNnum()); 
 			pstmt.setString(2, nvo.getNsubject()); 
@@ -161,7 +161,7 @@ public class NoticedaoImpl implements Noticedao {
 		
 		NoticeVO.printlnNoticeVO(nvo);
 		
-		// 사용할 객체를 지역변수로 선언하고 초기화 하기 
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int nCnt = 0;
@@ -173,7 +173,7 @@ public class NoticedaoImpl implements Noticedao {
 			pstmt = conn.prepareStatement(NoticeSqlMap.getNoticeUpdateQuery());
 			
   			
-			// 파라미터 클리어 꼭 하기 
+			
 			pstmt.clearParameters();						
 			pstmt.setString(1, nvo.getNsubject()); 
 			pstmt.setString(2, nvo.getNmemo());   		
@@ -201,7 +201,7 @@ public class NoticedaoImpl implements Noticedao {
 		
 		NoticeVO.printlnNoticeVO(nvo);
 		
-		// 사용할 객체를 지역변수로 선언하고 초기화 하기 
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int nCnt = 0;
@@ -213,7 +213,7 @@ public class NoticedaoImpl implements Noticedao {
 			pstmt = conn.prepareStatement(NoticeSqlMap.detNoticeDeleteQuery());
 			
   			
-			// 파라미터 클리어 꼭 하기 
+			
 			pstmt.clearParameters();									
 			pstmt.setString(1, nvo.getNnum()); 
 

@@ -1,10 +1,10 @@
-package front.notices.service;
+package front.notice.service;
 
 import java.util.ArrayList;
 
-import front.notices.dao.Noticedao;
-import front.notices.dao.NoticedaoImpl;
-import front.notices.vo.NoticeVO;
+import front.notice.dao.Noticedao;
+import front.notice.dao.NoticedaoImpl;
+import front.notice.vo.NoticeVO;
 
 public class NoticeServiceImpl implements NoticeService {
 
