@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.main-form {position: relative; z-index: 2;}
+.main-form h1 {
+	
+    font-family: 'GmarketSansMedium';
+    
+    font-size: 65px; color: #010101;
+    padding-top : 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main-form h2 {
+    font-family: 'GmarketSansMedium';
+    
+    font-size: 30px; color: #010101;
+    padding-top : 5px;
+    text-align: center;
+    
+}
+.main-form h4 {
+	
+    font-family: 'GmarketSansMedium';
+    
+    font-size: 15px; color: #010101;
+    padding-top : 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main-form h5 { 
+	padding-top : 13%;
+	font-size : 60px;
+	text-align: center;
+}
+
+.main-form h6 {
+	padding-top : 10%;
+    font-family: 'GmarketSansMedium';
+    font-size: 20px; color: #010101;
+    text-align: center;
+}
+
+
+a{
+    /* Text의 밑줄 제거 */
+    text-decoration: none;
+    
+    /* 부모의 색상값을 물려받도록*/
+    color: inherit
+         
+}
+
+
+
+ul, li {
+    /* 글머리표 제거 ● 같은것*/
+    list-style: none;
+}
+header {
+   
+}
+
+header .gnb{
+    /* 오른쪽 배열*/
+    float: right
+}
+    
+header .gnb li {
+    /*메뉴 가로로 배열*/
+    display: inline-block;
+    /*각각 왼쪽으로 30px 띄우기*/
+    margin-top: 28px;
+    margin-right: 40px;
+}
+
+header .gnb li :first-child{
+    /*메뉴의 첫번째 는 멀어질 필요가 없기때문에*/
+    margin-left: 0;
+}
+
+.clockcss{
+	 
+	 text-align: center;
+	 
+}
+.ctemp{
+	text-align: center; 
+}
+.lowtemp{
+	
+	text-align: center;
+}
+.hightemp{
+	text-align: center; 
+}
+
+
+
+
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
