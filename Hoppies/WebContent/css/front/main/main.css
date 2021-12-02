@@ -23,45 +23,47 @@ body {
 }
 
 .main-form {position: relative; z-index: 2;}
-.main-form h1 {
-	
-    font-family: 'GmarketSansMedium';
+
+
+.mainb{
+	font-family: 'GmarketSansMedium';
     
-    font-size: 65px; color: #010101;
+    font-size: 65px;
     padding-top : 20px;
     text-align: center;
     margin-bottom: 10px;
 }
 
-.main-form h2 {
-    font-family: 'GmarketSansMedium';
+.mainb2{
+	font-family: 'GmarketSansMedium';
     
-    font-size: 30px; color: #010101;
-    padding-top : 5px;
-    text-align: center;
-    
-}
-.main-form h4 {
-	
-    font-family: 'GmarketSansMedium';
-    
-    font-size: 15px; color: #010101;
+    font-size: 15px;
     padding-top : 5px;
     text-align: center;
     margin-bottom: 10px;
 }
 
-.main-form h5 { 
-	padding-top : 13%;
-	font-size : 60px;
-	text-align: center;
-}
-
-.main-form h6 {
-	padding-top : 10%;
+.mainb3{
+	
+	padding-top : 8%;
     font-family: 'GmarketSansMedium';
-    font-size: 20px; color: #010101;
+    font-size: 20px;
     text-align: center;
+	
+}
+.clockcss{
+	position: absolute;
+	left: 48%; bottom: -53%;
+	 font-weight: bold;
+	
+	font-family: 'Noto Sans KR', sans-serif;
+    font-size : 20px;
+    
+	
+}
+.mlmod{
+	position: absolute; right: 1.5%; bottom: -55%;
+	
 }
 
 
@@ -90,6 +92,8 @@ header .gnb{
 }
     
 header .gnb li {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size : 20px;
     /*메뉴 가로로 배열*/
     display: inline-block;
     /*각각 왼쪽으로 30px 띄우기*/
@@ -108,6 +112,8 @@ header .gnb li :first-child{
 	 
 }
 .ctemp{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
 	text-align: center; 
 }
 .lowtemp{
