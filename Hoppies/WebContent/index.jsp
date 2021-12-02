@@ -37,9 +37,20 @@
 
 
 
-<div class = "mainb3">Seoul<br>Current Weather</div>
-<div class="icon", style = "text-align:center"></div>
-<div class="ctemp">현재 온도 : </div>
+<!-- <div class = "mainb3">Seoul<br>Current Weather</div>-->
+<div class = "mainb3">서울</div>
+<div class="seicon", style = "text-align:center"></div>
+<div class="setemp"> 현재 온도 : </div>
+
+<div class = "mainb3">경기</div>
+<div class="gyicon", style = "text-align:center"></div>
+<div class="gytemp"> 현재 온도 : </div>
+
+<div class = "mainb3">부산</div>
+<div class="buicon", style = "text-align:center"></div>
+<div class="butemp"> 현재 온도 : </div>
+
+
 <!--  <div class="lowtemp">최저 온도 : </div>-->
 <!--  <div class="hightemp">최고 온도 : </div>-->
 
@@ -105,17 +116,16 @@ function homzzang() {
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	
 	<script>
-		$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=93bf46cb6d5b998d5ecdd3f8bf6000da&units=metric',
-				function(result){
-			
-					
-					
+		var Seourl = 'http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=93bf46cb6d5b998d5ecdd3f8bf6000da&units=metric';
+		var Gyourl = 'https://api.openweathermap.org/data/2.5/weather?q=Gyeonggi-do&appid=93bf46cb6d5b998d5ecdd3f8bf6000da&units=metric';
+		var Busurl = 'api.openweathermap.org/data/2.5/weather?q=Busan&appid=93bf46cb6d5b998d5ecdd3f8bf6000da&units=metric';
+		
+		$.getJSON(Seourl,function(result){		
 					// result 변수는 getJSON 안에서 선언되었기때문에 안에서 사용되어야 한다.
-					$('.ctemp').append(result.main.temp + ' º');
-					$('.lowtemp').append(result.main.temp_min);
-					$('.hightemp').append(result.main.temp_max);
+					$('.setemp').append(result.main.temp + ' º');
+					//$('.lowtemp').append(result.main.temp_min);
+					//$('.hightemp').append(result.main.temp_max);
 
-					
 					/*아이콘					
 					$('.icon').append(result.weather[0].icon);					
 					->					
@@ -127,12 +137,30 @@ function homzzang() {
 					*/
 					//(result.weather[0].icon
 					var wiconUrl = '<img src="http://openweathermap.org/img/wn/'+result.weather[0].icon +'.png" alt="'+ result.weather[0].description +'">'
-					$('.icon').html(wiconUrl);
-
+					$('.seicon').html(wiconUrl);
 		});
 		
-
+		$.getJSON(Gyourl,function(result){		
+				// result 변수는 getJSON 안에서 선언되었기때문에 안에서 사용되어야 한다.
+				$('.gytemp').append(result.main.temp + ' º');
+				
+				var wiconUrl = '<img src="http://openweathermap.org/img/wn/'+result.weather[0].icon +'.png" alt="'+ result.weather[0].description +'">'
+				$('.gyicon').html(wiconUrl);
+		});
+		
+		$.getJSON(Gyourl,function(result){		
+			// result 변수는 getJSON 안에서 선언되었기때문에 안에서 사용되어야 한다.
+			$('.butemp').append(result.main.temp + ' º');
+			
+			var wiconUrl = '<img src="http://openweathermap.org/img/wn/'+result.weather[0].icon +'.png" alt="'+ result.weather[0].description +'">'
+			$('.buicon').html(wiconUrl);
+	});
+						
+					
+					
 	</script>
+	
+	
 
 	<script>
 		function openNav() {	

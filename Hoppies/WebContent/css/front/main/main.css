@@ -111,16 +111,21 @@ header .gnb li :first-child{
 	 text-align: center;
 	 
 }
-.ctemp{
+.setemp{
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	text-align: center; 
 }
-.lowtemp{
-	
-	text-align: center;
+
+.gytemp{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	text-align: center; 
 }
-.hightemp{
+
+.butemp{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
 	text-align: center; 
 }
 
