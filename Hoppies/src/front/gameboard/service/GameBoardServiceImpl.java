@@ -51,7 +51,13 @@ public class GameBoardServiceImpl implements GameBoardService {
 		// TODO Auto-generated method stub
 		return gameBoardDAO.gameboardDelete(gvo);
 	}
-
+/*
+	@Override
+	public List<GameBoardVO> boardLoginCheck(GameBoardVO gvo){
+		// TODO Auto-generated method stub
+		return gameBoardDAO.boardLoginCheck(gvo);
+	}
+*/	
 	@Override
 	public List<GameBoardVO> gameboardSelectPaging(GameBoardVO gvo) {
 		// TODO Auto-generated method stub

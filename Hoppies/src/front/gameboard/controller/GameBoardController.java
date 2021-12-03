@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import front.common.ChabunUtil;
 import front.common.CommonUtils;
@@ -196,4 +197,26 @@ public class GameBoardController {
 		if (nCnt > 0) { return "game/gameBoardDelete";}
 		return "game/gameBoardForm";
 	}
+	
+	/*
+	
+	// 로그인 체크하기 2021-12-03
+	@RequestMapping(value="boardLoginCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public Object boardLoginCheck(GameBoardVO gvo) {
+		logger.info("GameBoardController boardLoginCheck 함수 진입 >>> : ");
+		
+		logger.info("GameBoardController boardLoginCheck gvo.getGnickname() >>> : " + gvo.getGnickname());
+		logger.info("GameBoardController boardLoginCheck gvo.getMno() >>> " + gvo.getMno());
+		
+		List<GameBoardVO> list = gameBoardService.boardLoginCheck(gvo);
+		logger.info("GameBoardController boardLoginCheck list.size() >>> " + list.size());
+		
+		String msg = "";
+		if (list.size() == 1) {msg = "LOGIN_OK";}
+		else {msg = "NO_LOGIN";}
+		
+		return msg;
+	}
+	*/
 }

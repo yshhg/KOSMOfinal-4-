@@ -12,6 +12,9 @@ public interface GameBoardDAO {
 	public int gameboardUpdate(GameBoardVO gvo);
 	public int gameboardDelete(GameBoardVO gvo);
 	
+	// 로그인 체크
+//	public List<GameBoardVO> boardLoginCheck(GameBoardVO gvo);
+	
 	// 페이징
 	public List<GameBoardVO> gameboardSelectPaging(GameBoardVO gvo);
 }

@@ -10,7 +10,7 @@
 	$(document).ready(function(){
 		$(document).on("click", "#sbbtn", function(){
 			console.log("sbbtn >>> : ");
-			$('#boardForm').attr({
+			$('#gameboardForm').attr({
 				'action':'gameboardInsert.s',
 				'method':'POST',
 				'enctype':'multipart/form-data'
