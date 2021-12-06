@@ -41,10 +41,7 @@ public class ChabunUtil {
 	public static void main(String[] args) {
 		
 		String c = "1";
-		System.out.println(">>> : " + ChabunUtil.getMemChabun("m", c));
-		System.out.println(">>> : " + ChabunUtil.getBoardChabun("N", c));
-		System.out.println(">>> : " + ChabunUtil.getRboardChabun("N", c));
-		System.out.println(">>> : " + ChabunUtil.getNoticeChabun("N", c));
+	
 	}
 	
 
