@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ê²Œì‹œíŒ</title>
+<meta charset="EUC-KR">
+<title>°Ô½ÃÆÇ</title>
 <style type="text/css">
 
 	.div1{
-		
-		background: Silver;	
+		background: lightblue;
+		border: 1px solid red;	
 		width: 450px;		
-		
-		margin: 0px auto;	
+		margin: 100px auto;	
 	}
 		
 	.align{
@@ -18,20 +17,24 @@
 	}
 
 </style>
-
+<!-- Á¦ÀÌÄõ¸® CDN -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
+		//ÆûÅÂ±× µ¥ÀÌÅÍ JSP º¸³»±â 
 		$("#noticeBtn").click(function(){
+			alert("noticeBtn click() ÇÔ¼ö ÁøÀÔ >>> : ");
+			console.log("noticeBtn click() ÇÔ¼ö ÁøÀÔ >>> : ");
 			
 			var v1 = $("#ISUD_TYPE").val();
+			alert("v1 >>> : " + v1);
 			
 			
-			
+			// attr() vs prop()
 			$("#noticeWrite")
 			.attr({
-					"action":"/front/notice?ISUD_TYPE="+v1,
+					"action":"/testKosmo/notice?ISUD_TYPE="+v1,
 				    "method":"POST",
 				    "enctype":"multipart/form-data"
 			       })
@@ -39,49 +42,48 @@
 		});		
 	});
 </script>	
-<meta name="generator" content="Namo WebEditor(Trial)">
-
 </head>
 <body>
 <div class="div1">
 <form name="noticeWrite" id="noticeWrite">
-<table border="2">
+<table border="1">
 	<tr>	
 		<td colspan="2" class="align">	
 						
-			<font size="7" color="black">ê³µì§€ ì‚¬í•­</font>
+			<font size="4" style="color:blue;">°øÁö »çÇ×</font> 
+			<img src="/testKosmo/img/img_mando/ase.gif" width="25" height="25" alt="image">		
 		</td>				
 	</tr>
 	<tr>
-		<td class="align"><span style="font-size:8pt;"><b>ê¸€ë²ˆí˜¸</b></span></td>
-		<td><input type="text" name="nnum" id="nnum" size="49" readonly></td>
+		<td class="align">±Û¹øÈ£</td>
+		<td><input type="text" name="nnum" id="nnum" size="20" readonly></td>
 	</tr>
 	<tr>
-		<td class="align"><span style="font-size:8pt;"><b>ì´ë¦„</b></span></td>
+		<td class="align">Á¦¸ñ</td>
 		<td><input type="text" name="nsubject" id="nsubject" size="49"></td>
 	</tr>		
 	<tr>
-		<td class="align"></td>
+		<td class="align">³»¿ë</td>
 		<td>
-		<textarea name="nmemo" id="nmemo" cols="51" rows="46"></textarea>
+		<textarea name="nmemo" id="nmemo" cols="51" rows="10"></textarea>
 	</td>
 	</tr>
 	<tr>
-		<td class="align"><span style="font-size:8pt;">ì²¨ë¶€ ì´ë¦„</span></td>
+		<td class="align">»çÁø</td>
 		<td>
-		<input type="file" name="nphoto" id="nphoto" size="39">
+		<input type="file" name="nphoto" id="nphoto">
 	</td>
 	</tr>	
 	<tr>
 		<td colspan="2" class="align">	
 		<input type="hidden" name="ISUD_TYPE" id="ISUD_TYPE" value="I">					
 		<button type="button" id="noticeBtn">
-			
-			ì‚¬ì§„ ë³´ë‚´ê¸°
+			<img src="/testKosmo/img/img_mando/ase.gif" width="25" height="25" alt="image">	
+			º¸³»±â
 		</button>	
 		<button type="reset">
-			
-			ë‹¤ì‹œ(Reset)
+			<img src="/testKosmo/img/img_mando/b-baa.gif" width="25" height="25" alt="image">	
+			´Ù½Ã
 		</button>
 	</td>				
 	</tr>
