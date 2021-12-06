@@ -14,10 +14,11 @@ public class FileUploadUtil {
 	private int imgfileSize;
 	private MultipartRequest mr;
 	
+	
 	public FileUploadUtil(String imgfilePaths, int imgfileSize, String encodeType) {
 		this.imgfilePaths = imgfilePaths;
 		this.imgfileSize = imgfileSize;
-		this.encodeType = encodeType;		
+		this.encodeType = encodeType;
 	}
 	
 	public boolean imgfileUpload(HttpServletRequest req) {		

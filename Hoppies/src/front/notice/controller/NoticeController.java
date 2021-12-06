@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import front.common.CommonUtils;
 import front.common.FileUploadUtil;
+import front.common.GetChabun;
 import front.notice.service.NoticeService;
 import front.notice.service.NoticeServiceImpl;
 import front.notice.vo.NoticeVO;
@@ -46,7 +47,7 @@ public class NoticeController extends HttpServlet {
 					
 					String filePaths = CommonUtils.NOTICE_IMG_UPLOAD_PATH;
 	                int size_limit = CommonUtils.NOTICE_IMG_FILE_SIZE;
-	                String  encode_type = CommonUtils.NOTICE_IMG_ENCODE;
+	                String  encode_type = CommonUtils.NOTICE_EN_CODE;
 					
 					FileUploadUtil fu = new FileUploadUtil();					
 					boolean bFile = fu.fileUpldad3(request, filePaths, size_limit, encode_type);
