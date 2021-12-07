@@ -20,42 +20,45 @@ import front.mem.vo.MemberVO;
 @RequestMapping(value = "/front/mem")
 public class MemberRestController {
 	Logger logger = Logger.getLogger(MemberRestController.class);
-	
-	@Autowired(required=false)
-	 MemberService memberService;
-	
-	//회원가입화면으로 이동
+
+	@Autowired(required = false)
+	MemberService memberService;
+
+	// 회원가입화면으로 이동
 	@RequestMapping(value = "/MemForm")
 	public String index() {
 		return "mem/MemForm";
 	}
-	
-	@RequestMapping(value = "/confirmId", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/confirmId", method = RequestMethod.POST)
 	@ResponseBody
 	public Object confirmId(MemberVO mvo) {
-		
-		//String id = req.getParameter("id");
+
+		// String id = req.getParameter("id");
 		logger.info("url => confirmId");
-		
-		List<MemberVO> list = memberService.memberIdCheck(mvo);			
-		
-		String msg = "";		
-		if (list.size() == 0) {msg = "ID_YES";}  
-		else { msg = "ID_NO";}  
-		
-		return msg;		
+
+		List<MemberVO> list = memberService.memberIdCheck(mvo);
+
+		String msg = "";
+		if (list.size() == 0) {
+			msg = "ID_YES";
+		} else {
+			msg = "ID_NO";
+		}
+
+		return msg;
 	}
-	
-	   @RequestMapping(value = "/login")
-	   public String login() {
-	      return "login/login";
-	   }
-	
-	@RequestMapping(value = "/memInsert", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "login/login";
+	}
+
+	@RequestMapping(value = "/memInsert", method = RequestMethod.POST)
 	public String memInsert(HttpServletRequest req, Model model) {
-		
+
 		logger.info("url => memInsert");
-		
+
 		MemberVO vo = new MemberVO();
 		logger.info("url => memInsert>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + req.getParameter("mname"));
 		vo.setMname(req.getParameter("mname"));
@@ -65,12 +68,16 @@ public class MemberRestController {
 		vo.setMhobby_2(req.getParameter("mhobby_2"));
 		vo.setMhobby_3(req.getParameter("mhobby_3"));
 		vo.setMarea(req.getParameter("marea"));
-		
+
 		memberService.memInsert(vo);
-		
-		return "main/main";		
+
+		return "redirect:/front/mem/main.s";
 	}
 	
-	
+	@RequestMapping(value = "/main")
+	public String main() {
+		logger.info("url => main");
+		return "main/main";
+	}
 
 }
