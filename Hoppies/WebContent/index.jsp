@@ -29,7 +29,7 @@
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 	  <a href="#">Book</a>
 	  <a href="#">Computer</a>
-	  <a href="/front/game/gameBoardForm.s">Game</a>
+	  <a href="/front/game/gameBoardSelectAll.s">Game</a>
 	  <a href="#">Contact</a>
 	</div>
 <span style="font-size:90px;cursor:pointer" onclick="openNav()">&#8250;</span>
