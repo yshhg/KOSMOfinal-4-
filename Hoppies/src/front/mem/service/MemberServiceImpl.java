@@ -2,11 +2,16 @@ package front.mem.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import front.mem.vo.MemberVO;
 import front.mem.dao.MemberDAO;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
+@Service
 public class MemberServiceImpl implements MemberService {
 	Logger logger = Logger.getLogger(MemberServiceImpl.class);
 
@@ -59,4 +64,15 @@ public class MemberServiceImpl implements MemberService {
 		logger.info("memberServiceImpl memberIdCheck() 함수진입");
 		return memberDAO.memberIdCheck(mvo);
 	}
+
+
+	@Override
+	public void memInsert(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		//vo라는 바구니 생성
+				
+		logger.info("memberServiceImpl memInsert() 함수진입"+ mvo);
+		memberDAO.insertMember(mvo);
+	}
+
 }

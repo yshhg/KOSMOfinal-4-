@@ -38,7 +38,7 @@ public class GameBoardController {
 	// 게임 게시판 글 입력 폼 2021-11-22 작성
 	@RequestMapping(value="gameBoardForm", method=RequestMethod.GET)
 	public String gameboardForm() {
-		return "front/game/gameBoardForm";
+		return "/game/gameBoardForm";
 	}
 	
 	// 게임 게시판 글쓰기 2021-11-22 작성

@@ -43,6 +43,10 @@ body::before{
     width: 400px; position: relative;
     margin-top: 20px;
 }
+.member-area #mid  {
+    width: 200px; position: relative;
+    margin-top: 20px;
+}
 .member-area:first-child {margin-top: 0;}
 .member-area input {
     width: 100%;
@@ -84,7 +88,6 @@ body::before{
 
 }
 .btn-area button{
-
     width: 100%; height: 60px;
     background: #166cea;
     color: #fff;

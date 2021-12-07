@@ -25,15 +25,15 @@ import front.mem.vo.MemberVO;
 public class MemberController {
 	Logger logger = Logger.getLogger(MemberController.class);
 	
-	private MemberService MemberService;
+	private MemberService memberService;
 	private ChabunService chabunService;
 	
 	// 생성자 오토와이어드
 	@Autowired(required=false)
-	public MemberController(MemberService MemberService,
+	public MemberController(MemberService memberService,
 							ChabunService chabunService) {
 		
-		this.MemberService = MemberService;
+		this.memberService = memberService;
 		this.chabunService = chabunService;
 	}
 	
@@ -42,7 +42,7 @@ public class MemberController {
 	@GetMapping("memForm")
 	public String memberForm() {
 		logger.info("memberController memberForm() 함수 진입");
-		return "mem/member";
+		return "mem/memForm";
 	}
 	
 	// 회원가입
@@ -56,9 +56,9 @@ public class MemberController {
 		logger.info("memberController memInsert mnum >> : " + mnum);
 		
 		// 이미지 업로드 
-		FileUploadUtil fu = new FileUploadUtil(	 CommonUtils.G_BOARD_IMG_UPLOAD_PATH
-									           	,CommonUtils.G_BOARD_IMG_FILE_SIZE
-									           	,CommonUtils.G_BOARD_EN_CODE);
+		FileUploadUtil fu = new FileUploadUtil(	 CommonUtils.MEMBER_IMG_UPLOAD_PATH
+									           	,CommonUtils.MEMBER_IMG_FILE_SIZE
+									           	,CommonUtils.MEMBER_EN_CODE);
 				
 		// 이미지 파일 원본 사이즈 
 		// boolean bool = fu.imgfileUpload(req);
@@ -97,7 +97,7 @@ public class MemberController {
 			public String memSelectAll(MemberVO mvo, Model model) {
 				logger.info("memberController memSelectAll 함수 진입 >>> :");	
 				
-				List<MemberVO> listAll = MemberService.memberSelectAll(mvo);
+				List<MemberVO> listAll = memberService.memberSelectAll(mvo);
 				logger.info("SpringMemberController memSelectAll listAll.size() >>> : " + listAll.size());
 				
 				if (listAll.size() > 0) { 

@@ -21,6 +21,7 @@ public class MemberVO {
 	private String updatedate;
 	private String tempauthmemail;
 	private String tempauthnum;
+	private String confirm;
 	
 	public MemberVO() {
 		
@@ -110,7 +111,7 @@ public class MemberVO {
 	}
 	
 	public void setMname(String mname) {
-		this.mnum = mname;
+		this.mname = mname;
 	}
 
 	public void setMid(String mid) {
@@ -181,8 +182,16 @@ public class MemberVO {
 		logger.info("아이디찾기  이메일 >>> : " + mvo.getTempauthmemail());
 		logger.info("아이디찾기  인증번호 >>> : " + mvo.getTempauthnum());
 		
-		logger.info("MemberVO 데이터 확인 끝  >>> : ");	
+		logger.info("SpringMemberVO 데이터 확인 끝  >>> : ");	
 		
+	}
+
+	public String getConfirm() {
+		return confirm;
+	}
+
+	public void setConfirm(String confirm) {
+		this.confirm = confirm;
 	}
 	
 	
