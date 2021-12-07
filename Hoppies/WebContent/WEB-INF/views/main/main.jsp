@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Hoppies</title>
- <link rel="stylesheet" href="../../css/front/main/main.css">
+ <link rel="stylesheet" href="../../../css/front/main/main.css">
  <script type = "text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 
  
@@ -18,8 +18,8 @@
         <header>
         
             <ul class = "gnb">
-                <li><a href="/Hoppies/front/mem/MemForm.s">가입하기</a></li>
-                <li><a href="/Hoppies/front/mem/login.s">로그인</a></li>
+                <li><a href="/front/mem/MemForm.s">가입하기</a></li>
+                <li><a href="/front/mem/login.s">로그인</a></li>
             </ul>
         </header>
     </div>

@@ -73,10 +73,9 @@ public class MemberRestController {
 
 		return "redirect:/front/mem/main.s";
 	}
-	
+
 	@RequestMapping(value = "/main")
 	public String main() {
-		logger.info("url => main");
 		return "main/main";
 	}
 
