@@ -128,5 +128,39 @@
 	WHERE 	DELETEYN = 'Y'
 	AND     A.MID = #{mid, jdbcType=VARCHAR}
 </select>
+
+<insert id="insertMember" parameterType="memberVO">
+
+	INSERT INTO SPRING_MEMBER( 	 
+							 MNUM      		<!-- COLUMN 1 -->
+							,MNAME 			<!-- COLUMN 2 -->
+							,MID 			<!-- COLUMN 3 -->
+							,MPW 			<!-- COLUMN 4 -->
+                          	,MHOBBY_1   		<!-- COLUMN 13 -->
+                          	,MHOBBY_2 
+                          	,MHOBBY_3 
+                          	,MAREA 
+                          	,MADMIN 		<!-- COLUMN 16 -->
+                          	,DELETEYN		<!-- COLUMN 17 -->
+                          	,INSERTDATE	 	<!-- COLUMN 18 -->
+                          	,UPDATEDATE		<!-- COLUMN 19 -->
+                         ) 
+                  VALUES
+                  		( 	 
+                  			 SPRING_MEMBER_SEQ.NEXTVAL				<!-- placeholer 1 -->
+                  			,#{mname, jdbcType=VARCHAR} 			<!-- placeholer 2 --> 
+                  			,#{mid, jdbcType=VARCHAR} 				<!-- placeholer 3 -->
+                          	,#{mpw, jdbcType=VARCHAR}  				<!-- placeholer 4 -->
+                          	,#{mhobby_1, jdbcType=VARCHAR}  			<!-- placeholer 13 -->
+                          	,#{mhobby_2, jdbcType=VARCHAR}
+                          	,#{mhobby_3, jdbcType=VARCHAR}
+                          	,#{marea, jdbcType=VARCHAR}  			<!-- placeholer 14 -->
+                          	,'N'			<!-- placeholer 16 -->
+                          	,'Y'  									<!-- placeholer 17 -->
+                          	,SYSDATE  								<!-- placeholer 18 -->
+                          	,SYSDATE 								<!-- placeholer 19 -->
+                         ) 
+</insert>
+
 </mapper>
 

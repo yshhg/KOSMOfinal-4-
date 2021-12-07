@@ -21,6 +21,7 @@ public class MemberVO {
 	private String updatedate;
 	private String tempauthmemail;
 	private String tempauthnum;
+	private String confirm;
 	
 	public MemberVO() {
 		
@@ -183,6 +184,14 @@ public class MemberVO {
 		
 		logger.info("SpringMemberVO 데이터 확인 끝  >>> : ");	
 		
+	}
+
+	public String getConfirm() {
+		return confirm;
+	}
+
+	public void setConfirm(String confirm) {
+		this.confirm = confirm;
 	}
 	
 	

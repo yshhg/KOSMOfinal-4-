@@ -79,4 +79,11 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectList("memberIdCheck",mvo);
 	}
 
+	@Override
+	public int insertMember(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("insertMember",mvo);
+	}
+
+
 }

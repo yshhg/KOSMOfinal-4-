@@ -25,15 +25,15 @@ import front.mem.vo.MemberVO;
 public class MemberController {
 	Logger logger = Logger.getLogger(MemberController.class);
 	
-	private MemberService MemberService;
+	private MemberService memberService;
 	private ChabunService chabunService;
 	
 	// 생성자 오토와이어드
 	@Autowired(required=false)
-	public MemberController(MemberService MemberService,
+	public MemberController(MemberService memberService,
 							ChabunService chabunService) {
 		
-		this.MemberService = MemberService;
+		this.memberService = memberService;
 		this.chabunService = chabunService;
 	}
 	
@@ -42,7 +42,7 @@ public class MemberController {
 	@GetMapping("memForm")
 	public String memberForm() {
 		logger.info("memberController memberForm() 함수 진입");
-		return "mem/member";
+		return "mem/memForm";
 	}
 	
 	// 회원가입
@@ -97,7 +97,7 @@ public class MemberController {
 			public String memSelectAll(MemberVO mvo, Model model) {
 				logger.info("memberController memSelectAll 함수 진입 >>> :");	
 				
-				List<MemberVO> listAll = MemberService.memberSelectAll(mvo);
+				List<MemberVO> listAll = memberService.memberSelectAll(mvo);
 				logger.info("SpringMemberController memSelectAll listAll.size() >>> : " + listAll.size());
 				
 				if (listAll.size() > 0) { 
