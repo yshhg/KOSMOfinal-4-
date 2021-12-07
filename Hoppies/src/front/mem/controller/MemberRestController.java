@@ -30,6 +30,11 @@ public class MemberRestController {
 		return "mem/MemForm";
 	}
 	
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "login/login";
+	}
+	
 	@RequestMapping(value = "/confirmId", method=RequestMethod.POST)
 	@ResponseBody
 	public Object confirmId(MemberVO mvo) {
@@ -63,7 +68,12 @@ public class MemberRestController {
 		
 		memberService.memInsert(vo);
 		
-		return "main/main";		
+		return "redirect:/front/mem/main.s";		
+	}
+	
+	@RequestMapping(value = "/main")
+	public String main() {
+		return "main/main";
 	}
 	
 	

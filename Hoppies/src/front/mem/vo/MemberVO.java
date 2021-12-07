@@ -104,14 +104,13 @@ public class MemberVO {
 	}
 	
 	//setter
-	
 
 	public void setMnum(String mnum) {
 		this.mnum = mnum;
 	}
 	
 	public void setMname(String mname) {
-		this.mnum = mname;
+		this.mname = mname;
 	}
 
 	public void setMid(String mid) {

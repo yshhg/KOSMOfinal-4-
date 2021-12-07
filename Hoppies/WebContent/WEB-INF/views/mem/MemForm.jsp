@@ -118,7 +118,7 @@
 			console.log("btn click() 함수 진입 >>> : ");
 
 			$("#memForm").attr({
-					"action":"/Hoppies/front/mem/memInsert.s",
+					"action":"/front/mem/memInsert.s",
 				    "method":"POST"
 			       }).submit();	
 		});
@@ -127,13 +127,13 @@
 	function areaPopup(){
 		//popup창으로 데이터 전달
 		//openWin.document.getElementById("cInput").value = document.getElementById("pInput").value;
-		var url = "/Hoppies/front/base/areaAll.s";
+		var url = "/front/base/areaAll.s";
 		window.open(url, "confirm", "menubar=no, width=700, height=500");		
 	}
 	
 	function hobbyPopup(){
 		//popup창으로 데이터 전달
-		var url = "/Hoppies/front/base/hobbyAll.s";
+		var url = "/front/base/hobbyAll.s";
 		window.open(url, "confirm", "menubar=no, width=700, height=500");	
 	}	
 
