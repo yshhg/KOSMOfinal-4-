@@ -11,7 +11,7 @@
 		$(document).on("click", "#sbbtn", function(){
 			console.log("sbbtn >>> : ");
 			$('#gameboardForm').attr({
-				'action':'gameboardInsert.s',
+				'action':'gameBoardInsert.s',
 				'method':'POST',
 				'enctype':'multipart/form-data'
 			}).submit();
@@ -61,7 +61,7 @@
 	</tr>
 	<tr>
 		<td colspan="2" align="right">				
-		<input type="button" value="글쓰기" id="gbtn">		
+		<input type="button" value="글쓰기" id="sbbtn">		
 	</td>				
 	</tr>
 </table>
