@@ -1,6 +1,8 @@
 package front.mem.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -71,8 +73,18 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		//vo라는 바구니 생성
 				
-		logger.info("memberServiceImpl memInsert() 함수진입"+ mvo);
+		logger.info("memberServiceImpl memInsert() 함수진입");
 		memberDAO.insertMember(mvo);
 	}
+
+
+	@Override
+	public MemberVO loginPro(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		logger.info("memberServiceImpl loginPro() 함수진입");
+		return memberDAO.loginPro(mvo);
+	}
+
+
 
 }

@@ -16,5 +16,6 @@ public interface MemberDAO {
 	public List<MemberVO> memberIdCheck(MemberVO mvo);
 	
 	public int insertMember(MemberVO vo);
+	public MemberVO loginPro(MemberVO mvo);
 
 }

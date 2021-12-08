@@ -85,5 +85,11 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.insert("insertMember",mvo);
 	}
 
+	@Override
+	public MemberVO loginPro(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("loginPro",mvo);
+	}
+
 
 }

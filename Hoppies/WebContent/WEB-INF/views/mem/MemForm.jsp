@@ -181,7 +181,7 @@
 			</div>
 		</form>
 		<div class="caption">
-			<a href="/Hoppies/html/front/login/login.html">이미 회원 이십니까?</a>
+			<a href="/front/mem/login.s">이미 회원 이십니까?</a>
 		</div>
 	</section>
 </div>

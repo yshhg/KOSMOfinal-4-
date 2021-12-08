@@ -20,5 +20,7 @@ public interface MemberService {
 	public List<MemberVO> memberIdCheck(MemberVO mvo);
 	
 	public void memInsert(MemberVO mvo);
+	
+	public MemberVO loginPro(MemberVO mvo);
 
 }

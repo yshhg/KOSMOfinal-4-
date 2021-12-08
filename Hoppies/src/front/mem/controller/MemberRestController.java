@@ -3,6 +3,7 @@ package front.mem.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +77,49 @@ public class MemberRestController {
 
 	@RequestMapping(value = "/main")
 	public String main() {
+		logger.info("url => main");
+		
 		return "main/main";
 	}
+	
+	@RequestMapping(value = "/admin_main")
+	public String admin_main() {
+		logger.info("url => admin_main");
+		
+		return "main/admin_main";
+	}
+	
+	@RequestMapping(value = "/login_main")
+	public String login_main() {
+		logger.info("url => login_main");
+		
+		return "main/login_main";
+	}
+	
+	@RequestMapping(value = "/loginPro")
+	public String loginPro(HttpServletRequest req, MemberVO mvo, Model model)throws Exception {
+		
+		HttpSession session = req.getSession();
+				
+		MemberVO login = memberService.loginPro(mvo);
+		session.setAttribute("mid", login);
+		
+		String admin = login.getMadmin();
+		if(admin == "Y") {
+			return "redirect:/front/mem/admin_main.s";
+		}else {
+			return "redirect:/front/mem/login_main.s";
+		}
+		
+	}
+	
+	@RequestMapping(value = "/logoutPro")
+	public String logoutPro(HttpSession session) throws Exception{
+		
+		session.invalidate();
+		
+		return "redirect:/front/mem/main.s";
+	}
+	
 
 }

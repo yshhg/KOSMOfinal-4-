@@ -162,5 +162,12 @@
                          ) 
 </insert>
 
+<select id="loginPro" parameterType="memberVO" resultType="memberVO">
+	SELECT *
+	FROM SPRING_MEMBER
+	WHERE MID = #{mid, jdbcType=VARCHAR}
+	AND MPW = #{mpw, jdbcType=VARCHAR}
+</select>
+
 </mapper>
 
