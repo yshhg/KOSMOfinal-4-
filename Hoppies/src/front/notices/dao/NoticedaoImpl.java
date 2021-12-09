@@ -19,7 +19,6 @@ public class NoticedaoImpl implements Noticedao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rsRs = null;
-		
 		ArrayList<NoticeVO> aList = null;
 		
 		try {
@@ -119,8 +118,6 @@ public class NoticedaoImpl implements Noticedao {
 		// TODO Auto-generated method stub
 
 		NoticeVO.printlnNoticeVO(nvo);
-		
-		// 사용할 객체를 지역변수로 선언하고 초기화 하기 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int nCnt = 0;
@@ -131,8 +128,6 @@ public class NoticedaoImpl implements Noticedao {
 			
 			pstmt = conn.prepareStatement(NoticeSqlMap.getNoticeInsertQuery());
 			
-  			
-			// 파라미터 클리어 꼭 하기 
 			pstmt.clearParameters();			
 			pstmt.setString(1, nvo.getNnum()); 
 			pstmt.setString(2, nvo.getNsubject()); 
@@ -160,8 +155,6 @@ public class NoticedaoImpl implements Noticedao {
 		// TODO Auto-generated method stub
 		
 		NoticeVO.printlnNoticeVO(nvo);
-		
-		// 사용할 객체를 지역변수로 선언하고 초기화 하기 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int nCnt = 0;
@@ -172,8 +165,6 @@ public class NoticedaoImpl implements Noticedao {
 			
 			pstmt = conn.prepareStatement(NoticeSqlMap.getNoticeUpdateQuery());
 			
-  			
-			// 파라미터 클리어 꼭 하기 
 			pstmt.clearParameters();						
 			pstmt.setString(1, nvo.getNsubject()); 
 			pstmt.setString(2, nvo.getNmemo());   		
@@ -201,7 +192,6 @@ public class NoticedaoImpl implements Noticedao {
 		
 		NoticeVO.printlnNoticeVO(nvo);
 		
-		// 사용할 객체를 지역변수로 선언하고 초기화 하기 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int nCnt = 0;
@@ -212,8 +202,6 @@ public class NoticedaoImpl implements Noticedao {
 			
 			pstmt = conn.prepareStatement(NoticeSqlMap.detNoticeDeleteQuery());
 			
-  			
-			// 파라미터 클리어 꼭 하기 
 			pstmt.clearParameters();									
 			pstmt.setString(1, nvo.getNnum()); 
 

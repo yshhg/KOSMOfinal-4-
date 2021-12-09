@@ -36,7 +36,7 @@
 			// attr() vs prop()
 			$("#noticeWrite")
 			.attr({
-					"action":"/testKosmo/notice?ISUD_TYPE="+v1,
+					"action":"/Hoppies/notice?ISUD_TYPE="+v1,
 				    "method":"POST",
 				    "enctype":"multipart/form-data"
 			       })

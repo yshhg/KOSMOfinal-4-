@@ -74,12 +74,12 @@ public class NoticeVO {
 		}
 	public static void printlnNoticeVO(NoticeVO nvo) {
 		
-		System.out.println("nvo.getNnum() 				>>> : " + nvo.getNnum());
-		System.out.println("nvo.getNsubject() 			>>> : " + nvo.getNsubject());
-		System.out.println("nvo.getNmemo() 				>>> : " + nvo.getNmemo());		
-		System.out.println("nvo.getNphoto() 			>>> : " + nvo.getNphoto());					
-		System.out.println("nvo.getDeleteyn() 			>>> : " + nvo.getDeleteyn());
-		System.out.println("nvo.getnInsertdate() 		>>> : " + nvo.getnInsertdate());
-		System.out.println("nvo.getnUpdatedate() 		>>> : " + nvo.getnUpdatedate());
+		System.out.println(nvo.getNnum());
+		System.out.println( nvo.getNsubject());
+		System.out.println( nvo.getNmemo());		
+		System.out.println( nvo.getNphoto());					
+		System.out.println( nvo.getDeleteyn());
+		System.out.println(nvo.getnInsertdate());
+		System.out.println(nvo.getnUpdatedate());
 	}		
 	}

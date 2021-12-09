@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="front.notices.service.NoticeService"%>
 <%@page import="front.notices.service.NoticeServiceImpl"%>    
 <%@page import="front.notices.vo.NoticeVO"%>    
@@ -6,8 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>°øÁö »çÇ×</title>
+<meta charset="UTF-8">
+<title>ê³µì§€ ì‚¬í•­</title>
 <style type="text/css">
 
 	html {overflow:hidden;} 
@@ -33,7 +33,7 @@
 <script type="text/javascript">
 
 	function closePopup(){
-		alert("±¸ÇöÀº ´ÙÀ½¿¡");
+		alert("êµ¬í˜„ì€ ë‹¤ìŒì—");
 	}
 	
 </script>
@@ -61,25 +61,25 @@
 		nphoto = nvo.getNphoto();
 	}
 %>
-<h4>°øÁö»çÇ× ÆË¾÷</h4>
+<h4>ê³µì§€ì‚¬í•­ íŒì—…</h4>
 <hr>
 <div>
 <form name="noticeForm" id="noticeForm">
 <table>
 <tr>	
 	<td align="center">					
-		<font size="4" style="color:blue;">Àü»ç °øÁö </font> 
+		<font size="4" style="color:blue;">ì „ì‚¬ ê³µì§€ </font> 
 		<img src="/Hoppies/img/img_mando/ase.gif" width="25" height="25" alt="image">		
 	</td>				
 </tr>
 <tr>
-	<td class="tt">°øÁö¹øÈ£ : <%= nnum %></td>
+	<td class="tt">ê³µì§€ë²ˆí˜¸ : <%= nnum %></td>
 </tr>
 <tr>
-	<td class="tt">Á¦¸ñ : <%= nsubject %></td>	
+	<td class="tt">ì œëª© : <%= nsubject %></td>	
 </tr>
 <tr>
-	<td class="tt">³»¿ë : <%= nmemo %>	
+	<td class="tt">ë‚´ìš© : <%= nmemo %>	
 </td>
 </tr>
 <tr>
@@ -90,7 +90,7 @@
 <tr>			
 <tr>
 	<td>
-		<input type="checkbox" name="notice" onClick="closePopup()"> <font style="font-size:10px">¿À´Ã ÇÏ·ç µ¿¾È ¿­Áö ¾ÊÀ½</font>	
+		<input type="checkbox" name="notice" onClick="closePopup()"> <font style="font-size:10px">ì˜¤ëŠ˜ í•˜ë£¨ ë™ì•ˆ ì—´ì§€ ì•ŠìŒ</font>	
 	</td>
 </tr>
 

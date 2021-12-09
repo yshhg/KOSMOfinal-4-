@@ -8,8 +8,8 @@
 <style type="text/css">
 
 	.div1{
-		background: WHITE;
-		
+		background:white ;
+		border: 1px;	
 		width: 450px;		
 		margin: 100px auto;	
 	}
@@ -24,16 +24,15 @@
 <script type="text/javascript">
 
 	$(document).ready(function(){
-		//폼태그 데이터 JSP 보내기 
 		$("#noticeBtn").click(function(){
 			alert();
 			console.log();
 			
 			var v1 = $("#ISUD_TYPE").val();
-			alert(v1);
+			alert("v1 >>> : " + v1);
 			
 			
-			
+			// attr() vs prop()
 			$("#noticeWrite")
 			.attr({
 					"action":"/Hoppies/notice?ISUD_TYPE="+v1,
@@ -46,14 +45,13 @@
 </script>	
 </head>
 <body>
-
 <div class="div1">
 <form name="noticeWrite" id="noticeWrite">
 <table border="1">
 	<tr>	
 		<td colspan="2" class="align">	
 						
-			<font size="4" style="color:blue;">공지 사항</font> 
+			<font size="10" style="color:black;">NOTICE</font> 
 				
 		</td>				
 	</tr>
@@ -81,15 +79,17 @@
 		<td colspan="2" class="align">	
 		<input type="hidden" name="ISUD_TYPE" id="ISUD_TYPE" value="I">					
 		<button type="button" id="noticeBtn">
-				
+			
 			보내기
 		</button>	
 		<button type="reset">
-			
+		
 			다시
 		</button>
 	</td>				
 	</tr>
+	<button type="button"style="color: #black; background:#fff; font-size:15px; font-family: 'Noto Sans KR', sans-serif; border-radius:25px; padding:10px 30px; cursor: pointer;" onclick="homzzang()"><strong>모드 전환</strong>
+	</button>
 </table>
 </form>
 </div>

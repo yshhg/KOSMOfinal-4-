@@ -15,10 +15,10 @@
 	int nCnt = ((Integer)obj).intValue();
 	
 	if (nCnt > 0){
-		System.out.println("삭제 성공  nCnt >>> : " + nCnt);
+		System.out.println("삭제를 완료 하였습니다. " + nCnt);
 %>
 		<script>
-			location.href="/testKosmo/notice?ISUD_TYPE=SALL";
+			location.href="/Hoppies/notice?ISUD_TYPE=SALL";
 		</script>
 <%		
 	}else{
