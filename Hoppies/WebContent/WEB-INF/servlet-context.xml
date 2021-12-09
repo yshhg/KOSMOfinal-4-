@@ -11,7 +11,7 @@
 							http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
-			<property name="jndiName" value="java:comp/env/jdbc/Oracle11g" />
+			<property name="jndiName" value="java:comp/env/jdbc/Oracle11g_orclKOSMO00" />
 	</bean>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/> 	
@@ -22,7 +22,6 @@
 			class= "org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
 			<property name="dataSource" ref="dataSource"/>
 	</bean>
-	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage"><value>front.**.dao</value></property>
 	</bean>

@@ -21,6 +21,7 @@
             <ul class = "gnb">
                 <li><a href="/front/mem/MemForm.s"><strong>가입하기</strong></a></li>
                 <li><a href="/front/mem/login.s"><strong>로그인</strong></a></li>
+                <li><a href="hotdeal.jsp"><strong> 핫딜</strong></a></li>
             </ul>
         </header>
     </div>
