@@ -30,5 +30,6 @@
 	<classpathentry kind="lib" path="C:/Users/rlaak/git/KOSMOfinal-4-/Hoppies/WebContent/WEB-INF/lib/spring-webmvc-4.3.16.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/rlaak/git/KOSMOfinal-4-/Hoppies/WebContent/WEB-INF/lib/spring-websocket-4.3.16.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/rlaak/git/KOSMOfinal-4-/Hoppies/WebContent/WEB-INF/lib/standard.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

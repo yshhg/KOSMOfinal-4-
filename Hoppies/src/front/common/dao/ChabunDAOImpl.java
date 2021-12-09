@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import front.computer.vo.ComputerBoardVO;
 import front.gameboard.vo.GameBoardVO;
 import front.mem.vo.MemberVO;
 
@@ -22,6 +23,13 @@ public class ChabunDAOImpl implements ChabunDAO {
 		// TODO Auto-generated method stub
 		logger.info("ChabunDAOImpl.getGameBoardChabun >>> : ");
 		return sqlSession.selectOne("getGameBoardChabun");
+	}
+	
+	@Override
+	public ComputerBoardVO getComputerBoardChabun(){//21-12-09 컴퓨터 채번 추가
+		// TODO Auto-generated method stub
+		logger.info("ChabunDAOImpl.getComputerBoardChabun >>> : ");
+		return sqlSession.selectOne("getComputerBoardChabun");
 	}
 
 	@Override

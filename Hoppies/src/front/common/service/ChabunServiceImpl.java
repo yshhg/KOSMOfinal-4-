@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import front.common.dao.ChabunDAO;
+import front.computer.vo.ComputerBoardVO;
 import front.gameboard.vo.GameBoardVO;
 import front.mem.vo.MemberVO;
 
@@ -27,6 +28,12 @@ public class ChabunServiceImpl implements ChabunService {
 		// TODO Auto-generated method stub
 		logger.info("ChabunServiceImpl.getGameBoardChabun >>> : ");
 		return chabunDAO.getGameBoardChabun();
+	}
+	
+	@Override
+	public ComputerBoardVO getComputerBoardChabun(){//21-12-09 컴퓨터 채번 추가
+		logger.info("ChabunServiceImpl.getComputerBoardChabun >>> : ");
+		return chabunDAO.getComputerBoardChabun();
 	}
 	
 	@Override
