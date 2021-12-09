@@ -8,8 +8,8 @@
 <style type="text/css">
 
 	.div1{
-		background: lightblue;
-		border: 1px solid red;	
+		background: WHITE;
+		
 		width: 450px;		
 		margin: 100px auto;	
 	}
@@ -30,13 +30,13 @@
 			console.log();
 			
 			var v1 = $("#ISUD_TYPE").val();
-			alert("v1 >>> : " + v1);
+			alert(v1);
 			
 			
-			// attr() vs prop()
+			
 			$("#noticeWrite")
 			.attr({
-					"action":"/testKosmo/notice?ISUD_TYPE="+v1,
+					"action":"/Hoppies/notice?ISUD_TYPE="+v1,
 				    "method":"POST",
 				    "enctype":"multipart/form-data"
 			       })
@@ -46,6 +46,7 @@
 </script>	
 </head>
 <body>
+
 <div class="div1">
 <form name="noticeWrite" id="noticeWrite">
 <table border="1">
@@ -53,7 +54,7 @@
 		<td colspan="2" class="align">	
 						
 			<font size="4" style="color:blue;">공지 사항</font> 
-			<img src="Hoppies/img/img_mando/ase.gif" width="25" height="25" alt="image">		
+				
 		</td>				
 	</tr>
 	<tr>
@@ -80,11 +81,11 @@
 		<td colspan="2" class="align">	
 		<input type="hidden" name="ISUD_TYPE" id="ISUD_TYPE" value="I">					
 		<button type="button" id="noticeBtn">
-			<img src="/Hoppies/img/img_mando/ase.gif" width="25" height="25" alt="image">	
+				
 			보내기
 		</button>	
 		<button type="reset">
-			<img src="/Hoppies/img/img_mando/b-baa.gif" width="25" height="25" alt="image">	
+			
 			다시
 		</button>
 	</td>				

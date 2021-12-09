@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>°Ô½ÃÆÇ</title>
+<meta charset="UTF-8">
+<title>ê²Œì‹œíŒ</title>
 <style type="text/css">
 
 	.div1{
@@ -17,15 +17,14 @@
 	}
 
 </style>
-<!-- Á¦ÀÌÄõ¸® CDN -->
+<!-- ì œì´ì¿¼ë¦¬ CDN -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
-		//ÆûÅÂ±× µ¥ÀÌÅÍ JSP º¸³»±â 
 		$("#noticeBtn").click(function(){
-			alert("noticeBtn click() ÇÔ¼ö ÁøÀÔ >>> : ");
-			console.log("noticeBtn click() ÇÔ¼ö ÁøÀÔ >>> : ");
+			alert();
+			console.log();
 			
 			var v1 = $("#ISUD_TYPE").val();
 			alert("v1 >>> : " + v1);
@@ -34,7 +33,7 @@
 			// attr() vs prop()
 			$("#noticeWrite")
 			.attr({
-					"action":"/testKosmo/notice?ISUD_TYPE="+v1,
+					"action":"/Hoppies/notice?ISUD_TYPE="+v1,
 				    "method":"POST",
 				    "enctype":"multipart/form-data"
 			       })
@@ -50,26 +49,26 @@
 	<tr>	
 		<td colspan="2" class="align">	
 						
-			<font size="4" style="color:blue;">°øÁö »çÇ×</font> 
-			<img src="/testKosmo/img/img_mando/ase.gif" width="25" height="25" alt="image">		
+			<font size="10" style="color:black;">NOTICE</font> 
+			<img src="/Hoppies/img/img_mando/ase.gif" width="25" height="25" alt="image">		
 		</td>				
 	</tr>
 	<tr>
-		<td class="align">±Û¹øÈ£</td>
+		<td class="align">ê¸€ë²ˆí˜¸</td>
 		<td><input type="text" name="nnum" id="nnum" size="20" readonly></td>
 	</tr>
 	<tr>
-		<td class="align">Á¦¸ñ</td>
+		<td class="align">ì œëª©</td>
 		<td><input type="text" name="nsubject" id="nsubject" size="49"></td>
 	</tr>		
 	<tr>
-		<td class="align">³»¿ë</td>
+		<td class="align">ë‚´ìš©</td>
 		<td>
 		<textarea name="nmemo" id="nmemo" cols="51" rows="10"></textarea>
 	</td>
 	</tr>
 	<tr>
-		<td class="align">»çÁø</td>
+		<td class="align">ì‚¬ì§„</td>
 		<td>
 		<input type="file" name="nphoto" id="nphoto">
 	</td>
@@ -78,12 +77,12 @@
 		<td colspan="2" class="align">	
 		<input type="hidden" name="ISUD_TYPE" id="ISUD_TYPE" value="I">					
 		<button type="button" id="noticeBtn">
-			<img src="/testKosmo/img/img_mando/ase.gif" width="25" height="25" alt="image">	
-			º¸³»±â
+			<img src="/Hoppies/img/img_mando/ase.gif" width="25" height="25" alt="image">	
+			ë³´ë‚´ê¸°
 		</button>	
 		<button type="reset">
-			<img src="/testKosmo/img/img_mando/b-baa.gif" width="25" height="25" alt="image">	
-			´Ù½Ã
+			<img src="/Hoppies/img/img_mando/b-baa.gif" width="25" height="25" alt="image">	
+			ë‹¤ì‹œ
 		</button>
 	</td>				
 	</tr>
