@@ -34,7 +34,7 @@
 	  <a href="/front/game/gameBoardSelectAll.s">Game</a>
 	  <a href="#">Contact</a>
 	</div>
-<span style="font-size:90px;cursor:pointer" onclick="openNav()">&#8250;</span>
+<span style="font-size:90px;cursor:pointer;z-index:1" onclick="openNav()">&#8250;</span>
 
 
 
@@ -51,10 +51,24 @@
 <div class = "mainb3">부산</div>
 <div class="buicon", style = "text-align:center"></div>
 <div class="butemp"> 현재 온도 : </div>
-
-
 <!--  <div class="lowtemp">최저 온도 : </div>-->
 <!--  <div class="hightemp">최고 온도 : </div>-->
+
+
+
+<div id="map" style=" margin-top :20px; z-index: 200; width:100%; height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=20dd1e0504986510bb9f2a551c8e8d9f"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.4789159, 126.8787759), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+</script>
+
 
 <div id ="clock" class="clockcss"></div>
 <div class = "mlmod">

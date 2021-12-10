@@ -53,16 +53,17 @@ body {
 }
 .clockcss{
 	position: absolute;
-	left: 48%; bottom: -53%;
-	 font-weight: bold;
-	
+	left: 48%; bottom: -5%;
+	text-aling : center;
+	font-weight: bold;
 	font-family: 'Noto Sans KR', sans-serif;
     font-size : 20px;
     
 	
 }
 .mlmod{
-	position: absolute; right: 1.5%; bottom: -55%;
+	position: absolute; right: 1.5%; bottom: -10%;
+	padding-bottom : 25px;
 	
 }
 
@@ -106,11 +107,6 @@ header .gnb li :first-child{
     margin-left: 0;
 }
 
-.clockcss{
-	 
-	 text-align: center;
-	 
-}
 .setemp{
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
