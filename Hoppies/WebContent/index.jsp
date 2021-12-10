@@ -28,7 +28,7 @@
     
     <div id="mySidenav" class="sidenav">
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  <a href="/html/front/notice/NoticeList.jspl.s">Notice</a>
+	  <a href="/html/front/notice/NoticeList.jsp">Notice</a>
 	  <a href="#">Book</a>
 	  <a href="#">Computer</a>
 	  <a href="/front/game/gameBoardSelectAll.s">Game</a>
