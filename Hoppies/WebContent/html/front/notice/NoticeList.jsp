@@ -83,7 +83,7 @@
 <!--End Paging -->
   </table>
   
-<a class='cls1' href='/board/write'><p class='cls2'>글쓰기</a>
+<a class='cls1' href="/html/front/notice/notice.jsp"><p class='cls2'>글쓰기</a>
 
 <script>
 	window.onload = () => {
