@@ -45,13 +45,13 @@ public class GameBoardDAOImpl implements GameBoardDAO {
 		// TODO Auto-generated method stub
 		return (Integer)sqlSession.insert("gameboardDelete", gvo);
 	}
-/*	
+
 	@Override
 	public List<GameBoardVO> boardLoginCheck(GameBoardVO gvo){
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("boardLoginCheck", gvo);
 	}
-*/
+
 	@Override
 	public List<GameBoardVO> gameboardSelectPaging(GameBoardVO gvo) {
 		// TODO Auto-generated method stub
