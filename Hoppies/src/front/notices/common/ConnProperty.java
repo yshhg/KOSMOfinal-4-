@@ -8,8 +8,8 @@ import java.sql.ResultSet;
 public abstract class ConnProperty {
 	
 	public static final String KOS_URL = "jdbc:oracle:thin:@localhost:1521:orclKOSMO00";
-	public static final String KOS_USER = "hbe00";
-	public static final String KOS_PASS = "hbe1234";	
+	public static final String KOS_USER = "HOPPIES00";
+	public static final String KOS_PASS = "HOPPIES1234";	
 	public static final String KOS_DRIVER = "oracle.jdbc.driver.OracleDriver";
 	
 public static Connection getConnection() {		
