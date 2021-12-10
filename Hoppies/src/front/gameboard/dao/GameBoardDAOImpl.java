@@ -57,5 +57,18 @@ public class GameBoardDAOImpl implements GameBoardDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("gameboardSelectPaging", gvo);
 	}
-
+	
+	@Override
+	public int boardRecom(int i) {
+		String gnum = Integer.toString(i);
+		
+		return sqlSession.update("gameboardRecom", gnum);
+	}
+	
+	@Override
+	public int boardUnrecom(int i) {
+		String gnum = Integer.toString(i);
+		
+		return sqlSession.update("gameboardUnrecom", gnum);
+	}
 }

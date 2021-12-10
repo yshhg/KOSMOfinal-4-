@@ -219,4 +219,12 @@ public class GameBoardController {
 		return msg;
 	}
 	*/
+	
+	// 좋아요, 싫어요. 2021-12-06
+	@RequestMapping(value="BoardRecom", method=RequestMethod.GET)
+	public String gameBoardRecomController(int i, boolean b) {
+		gameBoardService.boardRecom(i, b);
+			
+		return null;
+	}
 }

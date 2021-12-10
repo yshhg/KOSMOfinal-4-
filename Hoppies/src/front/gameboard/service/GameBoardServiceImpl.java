@@ -63,5 +63,18 @@ public class GameBoardServiceImpl implements GameBoardService {
 		// TODO Auto-generated method stub
 		return gameBoardDAO.gameboardSelectPaging(gvo);
 	}
+	
+	@Override
+	public int boardRecom(int i, boolean b) {
+	
+		// true=추천, false=비추천
+		if(b) {
+			gameBoardDAO.boardRecom(i);
+		}else {
+			gameBoardDAO.boardUnrecom(i);
+		}
+		
+		return 0;
+	}
 
 }
