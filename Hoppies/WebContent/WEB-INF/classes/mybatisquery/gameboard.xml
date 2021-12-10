@@ -128,5 +128,15 @@
 	WHERE DELETEYN = 'Y' AND GNUM = #{gnum, jdbcType=VARCHAR}
 </update>
 
+<update id="gameboardRecom" parameterType="STRING">
+	UPDATE GAME SET RECOM = NVL(MAX(RECOM), 0)+1
+	WHERE GNUM = #{gnum, jdbcType=VARCHAR}
+</update>
+
+<update id="gameboardUnrecom" parameterType="STRING">
+	UPDATE GAME SET UNRECOM = NVL(MAX(UNRECOM), 0)+1
+	WHERE GNUM = #{gnum, jdbcType=VARCHAR}
+</update>
+
 </mapper>
 

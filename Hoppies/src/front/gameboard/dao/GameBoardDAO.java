@@ -17,4 +17,8 @@ public interface GameBoardDAO {
 	
 	// 페이징
 	public List<GameBoardVO> gameboardSelectPaging(GameBoardVO gvo);
+	
+	// 추천, 비추천
+	public int boardRecom(int i);
+	public int boardUnrecom(int i);
 }

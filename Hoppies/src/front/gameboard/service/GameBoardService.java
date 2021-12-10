@@ -17,4 +17,7 @@ public interface GameBoardService {
 	
 	// 페이징
 	public List<GameBoardVO> gameboardSelectPaging(GameBoardVO gvo);
+	
+	// 추천, 비추천
+	public int boardRecom(int i, boolean b);
 }
