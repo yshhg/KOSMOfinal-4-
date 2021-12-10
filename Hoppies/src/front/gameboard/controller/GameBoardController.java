@@ -156,7 +156,7 @@ public class GameBoardController {
 	
 	}
 	// 게시글 수정/삭제 글 조회
-	@RequestMapping(value="gameboardSelect", method=RequestMethod.POST)
+	@RequestMapping(value="gameBoardSelect", method=RequestMethod.POST)
 	public String gameboardSelect(GameBoardVO gvo, Model model) {
 		logger.info("GameBoardController gameboardSelect 함수 진입 >>> : ");
 		logger.info("GameBoardController gameboardSelect gvo.getGnum() >>> " + gvo.getGnum());

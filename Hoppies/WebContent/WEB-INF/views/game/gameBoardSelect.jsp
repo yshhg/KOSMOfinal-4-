@@ -80,7 +80,7 @@
 <hr>
 <% request.setCharacterEncoding("UTF-8");%> 
 <%
-	Object obj = request.getAttribute("listS");
+	Object obj = request.getAttribute("listG");
 	List<GameBoardVO> list = (List)obj;
 	GameBoardVO gvo = null;
 	if (list.size() == 1) {
@@ -138,16 +138,5 @@
 </table>
 </form>
 </div>
-<p>
-<h3>댓글 처리 하는 루틴 </h3>
-<hr>
-<c:import url="/rgameboardForm.s">
-	<c:param name="gnum" value="<%=gvo.getGnum()%>"></c:param>
-</c:import>
-<!-- 
-<jsp:include page="/rboardForm.h">
-	<jsp:param value="<%=gvo.getGnum()%>" name="gnum"/>
-</jsp:include>
- -->	
 </body>
 </html>
