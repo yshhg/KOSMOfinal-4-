@@ -4,221 +4,81 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import front.notices.common.ConnProperty;
-import front.notices.sql.NoticeSqlMap;
+
 import front.notices.vo.NoticeVO;
 
-public class NoticedaoImpl implements Noticedao {
+public class NoticedaoImpl implements NoticeDAO {
 
-	@Override
-	public ArrayList<NoticeVO> noticeSelectAll() {
-		// TODO Auto-generated method stub
+	@Repository
+	public class NoticeDAOImpl implements NoticeDAO {
+
 		
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rsRs = null;
-		ArrayList<NoticeVO> aList = null;
-		
-		try {
-			
-			conn = ConnProperty.getConnection();
-			pstmt = conn.prepareStatement(NoticeSqlMap.getNoticeSelectAllQuery());
-			
-						
-			
-			rsRs = pstmt.executeQuery();			
-			
-			if (rsRs !=null) {
-				
-				aList = new ArrayList<NoticeVO>();
-				
-				while (rsRs.next()) {
-					
-					NoticeVO _nvo = new NoticeVO();
-					
-					_nvo.setNnum(rsRs.getString(1)); 
-					_nvo.setNsubject(rsRs.getString(2)); 
-					_nvo.setNmemo(rsRs.getString(3));				
-					_nvo.setNphoto(rsRs.getString(4));									
-					_nvo.setDeleteyn(rsRs.getString(5));
-					_nvo.setnInsertdate(rsRs.getString(6));
-					_nvo.setnUpdatedate(rsRs.getString(7));
-					
-					aList.add(_nvo);
-					NoticeVO.printNoticeVO(_nvo);
-				}				
-			}
-			ConnProperty.conClose(conn, pstmt, rsRs);
-		}catch(Exception e) {
-			
-		}finally {
-			ConnProperty.conClose(conn, pstmt, rsRs);
+		private Logger logger = Logger.getLogger(NoticeDAOImpl.class);
+
+		@Autowired(required=false)
+		private SqlSessionTemplate sqlSession;
+
+		// Notice Article INSERT
+		@Override
+		public int noticeInsert(NoticeVO nvo) {
+			logger.info("DAOImpl.noticeInsert() CALL");
+			return (Integer)sqlSession.insert("noticeInsert", nvo);
 		}
 		
-		return aList;	
-	}
+		// SELECT Notice List
+		@Override
+		public List<NoticeVO> noticeList(NoticeVO nvo){
+			logger.info("DAOImpl.noticeList() CALL");
 
-	@Override
-	public ArrayList<NoticeVO> noticeSelect(NoticeVO nvo) {
-		// TODO Auto-generated method stub
-		
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rsRs = null;
-		
-		ArrayList<NoticeVO> aList = null;
-		
-		try {
-			
-			conn = ConnProperty.getConnection();
-			pstmt = conn.prepareStatement(NoticeSqlMap.getNoticeSelectQuery());			
-						
-			
-			pstmt.clearParameters();
-			
-			pstmt.setString(1, nvo.getNnum());
-			rsRs = pstmt.executeQuery();			
-			
-			if (rsRs !=null) {
-				
-				aList = new ArrayList<NoticeVO>();
-				
-				while (rsRs.next()) {
-					
-					NoticeVO _nvo = new NoticeVO();
-					
-					_nvo.setNnum(rsRs.getString(1)); 
-					_nvo.setNsubject(rsRs.getString(2)); 
-					_nvo.setNmemo(rsRs.getString(3));				
-					_nvo.setNphoto(rsRs.getString(4));									
-					_nvo.setDeleteyn(rsRs.getString(5));
-					_nvo.setnInsertdate(rsRs.getString(6));
-					_nvo.setnUpdatedate(rsRs.getString(7));
-					
-					aList.add(_nvo);
-					NoticeVO.printNoticeVO(_nvo);
-				}				
-			}
-			ConnProperty.conClose(conn, pstmt, rsRs);
-		}catch(Exception e) {
-			
-		}finally {
-			ConnProperty.conClose(conn, pstmt, rsRs);
+			String searchType = nvo.getSearchType();
+			String keyword = nvo.getKeyword();
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("searchType", searchType);
+			map.put("keyword", keyword);
+			return sqlSession.selectList("noticeList", nvo);
 		}
 		
-		return aList;	
-
-	}
-
-	@Override
-	public int noticeInsert(NoticeVO nvo) {
-		// TODO Auto-generated method stub
-
-		NoticeVO.printlnNoticeVO(nvo);
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		int nCnt = 0;
-		
-		try {			
-			conn = ConnProperty.getConnection();
-			
-			
-			pstmt = conn.prepareStatement(NoticeSqlMap.getNoticeInsertQuery());
-			
-			pstmt.clearParameters();			
-			pstmt.setString(1, nvo.getNnum()); 
-			pstmt.setString(2, nvo.getNsubject()); 
-			pstmt.setString(3, nvo.getNmemo());   
-			pstmt.setString(4, nvo.getNphoto());
-
-			nCnt = pstmt.executeUpdate();						
-			if (!conn.getAutoCommit()) conn.commit();					
-		
-			
-			ConnProperty.conClose(conn, pstmt);
-		}catch(Exception e) {
-			
-		}finally {
-			try {
-				ConnProperty.conClose(conn, pstmt);				
-			}catch(Exception e2) {}
+		// SELECT One Notice Article
+		@Override
+		public NoticeVO noticeSelect(NoticeVO nvo) {
+			logger.info("DAOImpl.noticeSelect() CALL");
+			return sqlSession.selectOne("noticeSelect", nvo);
 		}
-				
-		return nCnt;
-	}
 
-	@Override
-	public int noticeUpdate(NoticeVO nvo) {
-		// TODO Auto-generated method stub
-		
-		NoticeVO.printlnNoticeVO(nvo);
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		int nCnt = 0;
-		
-		try {			
-			conn = ConnProperty.getConnection();
-			
-			
-			pstmt = conn.prepareStatement(NoticeSqlMap.getNoticeUpdateQuery());
-			
-			pstmt.clearParameters();						
-			pstmt.setString(1, nvo.getNsubject()); 
-			pstmt.setString(2, nvo.getNmemo());   		
-			pstmt.setString(3, nvo.getNnum()); 
-
-			nCnt = pstmt.executeUpdate();						
-			if (!conn.getAutoCommit()) conn.commit();					
-			
-			
-			ConnProperty.conClose(conn, pstmt);
-		}catch(Exception e) {
-			
-		}finally {
-			try {
-				ConnProperty.conClose(conn, pstmt);				
-			}catch(Exception e2) {}
+		// UPDATE HIT +1 When SELECT One Notice Article
+		@Override
+		public void updateCntHit(String no_num) {
+			logger.info("DAOImpl.updateCntHit() CALL");
+			sqlSession.update("updateCntHit", no_num);
 		}
-				
-		return nCnt;
-	}
-
-	@Override
-	public int noticeDelete(NoticeVO nvo) {
-		// TODO Auto-generated method stub
 		
-		NoticeVO.printlnNoticeVO(nvo);
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		int nCnt = 0;
-		
-		try {			
-			conn = ConnProperty.getConnection();
-			
-			
-			pstmt = conn.prepareStatement(NoticeSqlMap.detNoticeDeleteQuery());
-			
-			pstmt.clearParameters();									
-			pstmt.setString(1, nvo.getNnum()); 
-
-			nCnt = pstmt.executeUpdate();						
-			if (!conn.getAutoCommit()) conn.commit();					
-			
-			
-			ConnProperty.conClose(conn, pstmt);
-		}catch(Exception e) {
-			
-		}finally {
-			try {
-				ConnProperty.conClose(conn, pstmt);				
-			}catch(Exception e2) {}
+		// UPDATE One Notice Article
+		@Override
+		public int noticeUpdate(NoticeVO nvo) {
+			// TODO Auto-generated method stub
+			return sqlSession.update("noticeUpdate", nvo);
 		}
-				
-		return nCnt;
+		
+		// UPDATE One Notice Article
+		@Override
+		public int noticeDelete(NoticeVO nvo) {
+			// TODO Auto-generated method stub
+			return sqlSession.update("noticeDelete", nvo);
+		}
 	}
-
 }
+
+		
+		
+
+	
