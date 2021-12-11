@@ -40,7 +40,7 @@
 	<tr>	
 		<td colspan="2" class="align">
 						
-			<font size="10" style="color:black;">NOTICE</font> 
+			<font size="10" style="color:black;">내용을 입력 하시오</font> 
 				
 		</td>				
 	</tr>
@@ -69,7 +69,7 @@
 		<input type="hidden" name="ISUD_TYPE" id="ISUD_TYPE" value="I">					
 		<button type="button" id="noticeBtn">
 			
-			보내기
+			글쓰기
 		</button>	
 		<button type="reset">
 		

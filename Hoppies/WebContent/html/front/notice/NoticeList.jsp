@@ -77,9 +77,7 @@ if(list.size() > 0){
 <th class="tt" width="40" title="공지글번호">공지글번호</th>
 <th class="tt" width="450" title="공지글제목">공지글제목</th>
 <th class="tt" width="80" title="공지글본문">공지글본문</th>
-<th class="tt" width="60" title="삭제여부">삭제여부</th>
-<th class="tt" width="30" title="등록일">등록일</th>
-<th class="tt" width="40" title="수정일">수정일</th>
+
 </tr>
 </thead>
 
@@ -96,71 +94,26 @@ for(int i=0; i < list.size(); i++){
 	totalCount = Integer.parseInt(nvo.getTotalCount());
 }
 %>
+
+
+<tfoot>
+						<tr>
+							<td colspan="10">
+								<jsp:include page="NoticePaging.jsp" flush="true">
+									<jsp:param value="noticeList.k" name="url"/>
+									<jsp:param value="" name="str"/>
+									<jsp:param value="<%=pageSize %>" name="pageSize"/>
+									<jsp:param value="<%=groupSize %>" name="groupSize"/>
+									<jsp:param value="<%=curPage %>" name="curPage"/>
+									<jsp:param value="<%=totalCount %>" name="totalCount"/>
+								</jsp:include>
+							</td>
+						</tr>
+					</tfoot>
 </table>
 </form>
-<h1 align='center'>공지 사항</h1>
-<table align='center' border='1' width='80%'>
-	<tr height='10' align='center' bgcolor='lightgreen'>
-		<td>번호</td>
-		<td>작성자</td>
-		<td>제목</td>
-		<td>작성일</td>
-	</tr>
-	<c:choose>
-		<c:when test='${boardList == null}'>
-			<td colspan="4">
-				<p align="center">
-					<b><span style='font-size=9pt;'>등록된 글이 없습니다.</span></b>
-				</p>
-			</td>
-		</c:when>
-		
-		<c:when test="${boardList != null }">
-			<c:forEach var="post" items="${boardList }" varStatus="postNum">
-			<tr align="center">
-				<td width="5%">${post.bno}</td>
-				<td width="10%">${post.id }</td>
-				<td align='left' width="35%">
-				<span style='padding-right:30px'></span>
-			<c:choose>
-				<c:when test="${post.level > 1 }">
-					<c:forEach begin="1" end="${post.level }">
-						<span style='padding-left:20px'></span>
-					</c:forEach>
-					<span style='font-size:12px;'>[답변]</span>
-					<a class="cls1" href='/board/post?no=${post.bno }'>${post.title }</a>
-				</c:when>
-				
-				<c:otherwise>
-					<a class='cls1' href='/board/post?no=${post.bno }'>${post.title }</a>
-				</c:otherwise>
-			</c:choose>
-			</td>
-			<td width="10%">
-				<fmt:formatDate value="${post.regdate }"/>
-			</td>
-			</tr>
-			</c:forEach>
-		</c:when>
-	</c:choose>
-  
-  <!-- 페이징 처리 부분 -->
-	<td colspan="4">
-	<p align="center"><b><span style='font-size=9pt;'>
-	<c:if test="${page.prev }">
-		<a href="/board/list?page=${page.startPage -1 }">이전 페이지</a>
-	</c:if>
-&nbsp;<c:forEach var="num" begin="${page.startPage }" end="${page.endPage }">
-			<a href="/board/list?page=${num }">${num }</a> &nbsp;
-	</c:forEach>
-	<c:if test="${page.next }">
-		<a href="/board/list?page=${page.endPage + 1 }">다음 페이지</a>
-	</c:if>
-	</span></b>
-	</p>
-	</td>
-<!--End Paging -->
-  </table>
+
+ 
   
 <a class='cls1' href="/html/front/notice/NoticeForm.jsp"><p class='cls2'>글쓰기</a>
 
