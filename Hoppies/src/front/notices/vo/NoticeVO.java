@@ -81,5 +81,45 @@ public class NoticeVO {
 		System.out.println( nvo.getDeleteyn());
 		System.out.println(nvo.getnInsertdate());
 		System.out.println(nvo.getnUpdatedate());
+	}
+
+	public String getPageSize() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getGroupSize() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getCurPage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getTotalCount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setPageSize(String valueOf) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setGroupSize(String valueOf) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setCurPage(String valueOf) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setTotalCount(String valueOf) {
+		// TODO Auto-generated method stub
+		
 	}		
 	}

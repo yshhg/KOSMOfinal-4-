@@ -28,11 +28,20 @@ public class CommonUtils {
 	public static final int NOTICE_IMG_FILE_SIZE = 10*1024*1024; //10MB
 	public static final String NOTICE_EN_CODE = "UTF-8";
 	
+	// 공지 목록 페이징
+	public static final int NOTICE_PAGE_SIZE = 3;
+	public static final int NOTICE_GROUP_SIZE = 3;
+	public static final int NOTICE_CUR_PAGE = 1;
+	public static final int NOTICE_TOTAL_COUNT = 0;
+	
 	// 게시판 목록 페이징
 	public static final int G_BOARD_PAGE_SIZE = 3;
 	public static final int G_BOARD_GROUP_SIZE = 3;
 	public static final int G_BOARD_CUR_PAGE = 1;
 	public static final int G_BOARD_TOTAL_COUNT = 0;
+	
+	
+	
 	
 	
 	
