@@ -119,7 +119,7 @@
 </select>
 
 <update id="gameboardUpdate" parameterType="gameboardVO">
-	UPDATE GAME SET GCONTENTS=#{gcontent, jdbcType=VARCHAR}, UPDATEDATE = SYSDATE
+	UPDATE GAME SET GCONTENTS=#{gcontents, jdbcType=VARCHAR}, UPDATEDATE = SYSDATE
 	WHERE DELETEYN = 'Y' AND GNUM = #{gnum, jdbcType=VARCHAR}
 </update>
 

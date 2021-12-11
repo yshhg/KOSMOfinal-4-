@@ -38,7 +38,7 @@ public class GameBoardController {
 	// 게임 게시판 글 입력 폼 2021-11-22 작성
 	@RequestMapping(value="gameBoardForm", method=RequestMethod.GET)
 	public String gameboardForm() {
-		return "/game/gameBoardForm";
+		return "game/gameBoardForm";
 	}
 	
 	// 게임 게시판 글쓰기 2021-11-22 작성
@@ -133,9 +133,10 @@ public class GameBoardController {
 	}
 	
 	// 글 목록 조회
-	@RequestMapping(value="gameboardSelectAll", method=RequestMethod.GET)
+	@RequestMapping(value="gameBoardSelectAll", method=RequestMethod.GET)
 	public String gameboardSelectAll(GameBoardVO gvo, Model model) {
-		logger.info("GameBoardController gameboardSelectAll 함수 진입 >>> : ");
+			
+		logger.info("GameBoardController gameboardSelectAll 함수 진입 >>> : ");		
 		
 		logger.info("검색 관련 로그 >>> : ======================================= ");
 		logger.info("GameBoardController gameboardSelectAll gvo.getKeyfilter()" + gvo.getKeyfilter());
@@ -149,13 +150,13 @@ public class GameBoardController {
 		if(listAll.size() > 0) {
 			model.addAttribute("listAll", listAll);
 			return "game/gameBoardSelectAll";
-		}
-		
-		return "game/gameBoardForm";
-	}
+	    }
+	      
+	return "game/gameBoardForm";
 	
+	}
 	// 게시글 수정/삭제 글 조회
-	@RequestMapping(value="gameboardSelect", method=RequestMethod.POST)
+	@RequestMapping(value="gameBoardSelect", method=RequestMethod.POST)
 	public String gameboardSelect(GameBoardVO gvo, Model model) {
 		logger.info("GameBoardController gameboardSelect 함수 진입 >>> : ");
 		logger.info("GameBoardController gameboardSelect gvo.getGnum() >>> " + gvo.getGnum());
@@ -198,8 +199,6 @@ public class GameBoardController {
 		return "game/gameBoardForm";
 	}
 	
-	/*
-	
 	// 로그인 체크하기 2021-12-03
 	@RequestMapping(value="boardLoginCheck", method=RequestMethod.POST)
 	@ResponseBody
@@ -218,7 +217,6 @@ public class GameBoardController {
 		
 		return msg;
 	}
-	*/
 	
 	// 좋아요, 싫어요. 2021-12-06
 	@RequestMapping(value="BoardRecom", method=RequestMethod.GET)
